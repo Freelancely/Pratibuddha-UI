@@ -1,0 +1,42 @@
+<div class="tp-header-top-menu d-flex align-items-center justify-content-end">
+  <!-- <div class="tp-header-top-menu-item tp-header-lang">
+    <span (click)="handleActive('lang')" class="tp-header-lang-toggle" id="tp-header-lang-toggle">English</span>
+    <ul [ngClass]="isActive === 'lang' ? 'tp-lang-list-open' : ''">
+      <li>
+        <a href="#">Nepali</a>
+      </li>
+    </ul>
+  </div> -->
+  <!-- <div class="tp-header-top-menu-item tp-header-currency">
+    <span (click)="handleActive('currency')" class="tp-header-currency-toggle" id="tp-header-currency-toggle">USD</span>
+    <ul [ngClass]="isActive === 'currency' ? 'tp-currency-list-open' : ''">
+      <li>
+        <a href="#">NPR</a>
+      </li>
+    </ul>
+  </div> -->
+  <div class="tp-header-top-menu-item tp-header-setting">
+    <span (click)="handleActive('setting')" class="tp-header-setting-toggle"
+      id="tp-header-setting-toggle">Setting</span>
+    <ul [ngClass]="isActive === 'setting' ? 'tp-setting-list-open' : ''">
+      <!-- ✅ SHOW WHEN LOGGED IN -->
+      <li *ngIf="isLoggedIn">
+        <a routerLink="/pages/profile">My Profile</a>
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a routerLink="/shop/wishlist">Wishlist</a>
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a routerLink="/shop/cart">Cart</a>
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a (click)="onLogout()">Logout</a>
+      </li>
+
+      <!-- ✅ SHOW WHEN LOGGED OUT -->
+      <li *ngIf="!isLoggedIn">
+        <a (click)="onLogin()">Login</a>
+      </li>
+    </ul>
+  </div>
+</div>

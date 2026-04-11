@@ -1,0 +1,163 @@
+<div class="order-list-container">
+  <div class="page-header">
+    <h1 class="page-title">Orders</h1>
+    <p class="page-subtitle">Manage customer orders efficiently</p>
+  </div>
+
+  <div class="order-table" *ngIf="orders.length > 0; else noOrders">
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Payment</th>
+          <th>Items</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.orderId }}</td>
+          <td>
+            <div class="user-name-container">
+              <span>{{ order.fullName }}</span>
+              <button class="view-user-btn" (click)="openUserModal(order)" title="View customer details">
+                <i class="fa fa-eye"></i>
+              </button>
+            </div>
+          </td>
+          <td>{{ order.orderDateTime | date: 'short' }}</td>
+          <td>Nrs. {{ order.amountAfterDiscount | number: '1.2-2' }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="getStatusClass(order.status)">
+              {{ order.status }}
+            </span>
+            <button class="status-btn" (click)="openStatusModal(order)" title="Change status">
+              <i class="fa fa-edit"></i>
+            </button>
+          </td>
+          <td>{{ order.paymentMethod }}</td>
+          <td>
+            <button class="action-btn view-items-btn" (click)="openItemsModal(order)" title="View order items">
+              View Items
+            </button>
+          </td>
+          <td>
+            <button class="action-btn delete-btn" (click)="openDeleteModal(order.orderId)" title="Cancel order">
+              Cancel
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noOrders>
+    <div class="no-orders">No orders found.</div>
+  </ng-template>
+
+  <div class="pagination" *ngIf="totalCount > pageSize">
+    <button [disabled]="pageNumber === 1" (click)="changePage(pageNumber - 1)">
+      <i class="fa fa-chevron-left"></i>
+    </button>
+    <span class="page-info">{{ pageNumber }} / {{ totalPages }}</span>
+    <button [disabled]="pageNumber === totalPages" (click)="changePage(pageNumber + 1)">
+      <i class="fa fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Status Change Modal -->
+<div class="modal-overlay" *ngIf="showStatusModal" (click)="closeStatusModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Update Order Status</h2>
+      <button class="close-btn" (click)="closeStatusModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <p *ngIf="selectedOrder">Update status for order {{ selectedOrder.orderId }}</p>
+      <div class="status-options" *ngIf="selectedOrder">
+        <button
+          *ngFor="let status of orderStatuses"
+          class="status-option"
+          [ngClass]="getStatusClass(status)"
+          [class.selected]="selectedOrder.status === status"
+          (click)="selectedOrder.status = status"
+        >
+          {{ status }}
+        </button>
+      </div>
+      <p *ngIf="!selectedOrder">No order selected.</p>
+    </div>
+    <div class="modal-actions" *ngIf="selectedOrder">
+      <button class="action-btn confirm-btn" (click)="confirmStatusChange()">Save</button>
+      <button class="action-btn cancel-btn" (click)="closeStatusModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Delete Order Modal -->
+  <div class="modal-overlay" *ngIf="showDeleteModal" (click)="closeDeleteModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Cancel Order</h2>
+        <button class="close-btn" (click)="closeDeleteModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to cancel order {{ selectedOrderId }}?</p>
+      </div>
+      <div class="modal-actions">
+        <button class="action-btn confirm-btn" (click)="confirmDelete()">Confirm</button>
+        <button class="action-btn cancel-btn" (click)="closeDeleteModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Items Modal -->
+  <div class="modal-overlay" *ngIf="showItemsModal" (click)="closeItemsModal()">
+    <div class="modal-content items-modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Items in Order {{ selectedOrder?.orderId }}</h2>
+        <button class="close-btn" (click)="closeItemsModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="order-items-grid">
+          <div *ngFor="let item of selectedOrder?.orderItems" class="order-item-card">
+            <div class="item-image-container">
+              <img [src]="item.productImageUrl" alt="{{ item.productName }}" class="item-image" />
+            </div>
+            <div class="item-details">
+              <h3 class="item-name">{{ item.productName }}</h3>
+              <p class="item-quantity">Qty: {{ item.quantity }}</p>
+              <p class="item-price">Price: Nrs. {{ item.unitPrice | number: '1.2-2' }}</p>
+              <p class="item-total">Total: Nrs. {{ item.lineTotal | number: '1.2-2' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="action-btn cancel-btn" (click)="closeItemsModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Details Modal -->
+  <div class="modal-overlay" *ngIf="showUserModal" (click)="closeUserModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Customer Details</h2>
+        <button class="close-btn" (click)="closeUserModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Name:</strong> {{ selectedOrder?.fullName }}</p>
+        <p><strong>Email:</strong> {{ selectedOrder?.email }}</p>
+        <p><strong>Phone:</strong> {{ selectedOrder?.phone }}</p>
+      </div>
+      <div class="modal-actions">
+        <button class="action-btn cancel-btn" (click)="closeUserModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

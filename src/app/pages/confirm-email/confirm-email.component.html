@@ -1,0 +1,54 @@
+<div class="verification-container">
+  <div class="verification-card">
+    <div class="card-header">
+      <div class="icon-container">
+        <i class="icon-email" [ngClass]="{'success': status === 'success', 'error': status === 'failed'}">
+          {{ status === 'success' ? '✓' : '⚠' }}
+        </i>
+      </div>
+      <h2 class="card-title">Email Verification</h2>
+    </div>
+
+    <div class="card-body">
+      <ng-container *ngIf="status === 'success'">
+        <div class="status-message success">
+          <h3>Verification Successful!</h3>
+          <p>Your email has been successfully verified. You can now access all features of your account.</p>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" routerLink="/pages/login" (click)="navigateToLogin()">
+            <i class="btn-icon">→</i> Go to Login
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="status === 'failed'">
+        <div class="status-message error">
+          <h3>Verification Failed</h3>
+          <p>{{ message || 'An error occurred during verification. Please try again.' }}</p>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-secondary" routerLink="/register"  (click)="navigateToRegister()">
+            <i class="btn-icon">↶</i> Back to Register
+          </button>
+          <button class="btn btn-primary" routerLink="/pages/login"  (click)="navigateToLogin()">
+            <i class="btn-icon">→</i> Go to Login
+          </button>
+        </div>
+      </ng-container>
+
+      <!-- Show login button when status is not set (loading state) -->
+      <ng-container *ngIf="!status">
+        <div class="status-message loading">
+          <h3>Verifying Email...</h3>
+          <p>Please wait while we verify your email address.</p>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" routerLink="/pages/login"  (click)="navigateToLogin()">
+            <i class="btn-icon">→</i> Go to Login
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

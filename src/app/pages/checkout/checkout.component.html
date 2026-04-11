@@ -1,0 +1,267 @@
+<!-- header start -->
+<app-header-two [style_2]="true"></app-header-two>
+<!-- header end -->
+<main>
+  <!-- breadcrumb area start -->
+  <div style="background-color: #EFF1F5;">
+    <app-breadcrumb-one title="Checkout" subtitle="Checkout"></app-breadcrumb-one>
+  </div>
+  <!-- breadcrumb area end -->
+
+  <!-- checkout area start -->
+  <section class="tp-checkout-area pb-120" style="background-color: #EFF1F5;">
+    <div class="container">
+      <div *ngIf="cartService.getCartProducts().length === 0; else checkoutBlock" class="text-center pt-50">
+        <h3 class="py-2">No items found in cart to checkout</h3>
+        <a routerLink="/shop-filter-dropdown" class="tp-checkout-btn">
+          Return to shop
+        </a>
+      </div>
+
+      <ng-template #checkoutBlock>
+        <div class="row">
+          <div class="col-xl-7 col-lg-7">
+            <div class="tp-checkout-verify">
+              <div class="tp-checkout-verify-item">
+                <p class="tp-checkout-verify-reveal">Have a coupon?
+                  <button (click)="handleOpenCoupon()" type="button" class="tp-checkout-coupon-form-reveal-btn">Click
+                    here to enter your code
+                  </button>
+                </p>
+                <div *ngIf="isOpenCoupon" id="tpCheckoutCouponForm" class="tp-return-customer">
+                  <form (ngSubmit)="handleCouponSubmit()">
+                    <div class="tp-return-customer-input">
+                      <label>Coupon Code :</label>
+                      <input type="text" placeholder="Coupon" [(ngModel)]="couponCode" name="couponCode">
+                    </div>
+                    <button type="submit" class="tp-return-customer-btn tp-checkout-btn" [disabled]="isLoading">
+                      {{ isLoading ? 'Verifying...' : 'Apply' }}
+                    </button>
+                  </form>
+                  <p *ngIf="appliedCoupon" class="coupon-status success">Coupon "{{ appliedCoupon.code }}" applied! {{ appliedCoupon.discountPercent }}% off</p>
+                  <p *ngIf="couponCode && !appliedCoupon && !isLoading" class="coupon-status error">Invalid coupon code</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="tp-checkout-bill-area">
+                  <h3 class="tp-checkout-bill-title">Billing Details</h3>
+                  <!-- Saved Billing Addresses -->
+                  <div class="tp-checkout-bill-form">
+                    <h4>Saved Addresses</h4>
+                    <div *ngIf="billingInfos.length === 0" class="text-center">
+                      <p>No saved billing addresses</p>
+                    </div>
+                    <div *ngIf="isLoading" class="text-center">
+                      <p>Loading addresses...</p>
+                    </div>
+                    <div *ngFor="let billing of billingInfos" class="tp-checkout-address-item">
+                      <input
+                        type="radio"
+                        [id]="'billing-' + billing.billingInfoId"
+                        name="selectedBilling"
+                        [value]="billing.billingInfoId"
+                        [checked]="selectedBillingId === billing.billingInfoId"
+                        (change)="selectBilling(billing.billingInfoId)"
+                      >
+                      <label [for]="'billing-' + billing.billingInfoId">
+                        <strong>{{ billing.fullName }}</strong> ({{ billing.label }})<br>
+                        {{ billing.address }}, {{ billing.city }}, {{ billing.province }}<br>
+                        Phone: {{ billing.phoneNumber }}<br>
+                        Landmark: {{ billing.landMark || 'N/A' }}
+                      </label>
+                      <button type="button" class="tp-checkout-btn" (click)="editBilling(billing)" [disabled]="isLoading">Edit</button>
+                      <button type="button" class="tp-checkout-btn" (click)="deleteBilling(billing.billingInfoId)" [disabled]="isLoading">Delete</button>
+                    </div>
+                  </div>
+
+                  <!-- Add/Edit Billing Form -->
+                  <div class="tp-checkout-bill-form mt-4">
+                    <h4>{{ editingBillingId ? 'Edit Billing Address' : 'Add New Billing Address' }}</h4>
+                    <div class="tp-checkout-bill-inner">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="tp-checkout-input">
+                            <label>Full Name <span>*</span></label>
+                            <input type="text" placeholder="Full Name" formControlName="fullName">
+                            <span *ngIf="fullName?.hasError('required') && (fullName?.touched || formSubmitted)" class="text-danger">
+                              Full Name is required
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tp-checkout-input">
+                            <label>Phone Number <span>*</span></label>
+                            <input type="text" placeholder="Phone Number" formControlName="phoneNumber">
+                            <span *ngIf="phoneNumber?.hasError('required') && (phoneNumber?.touched || formSubmitted)" class="text-danger">
+                              Phone Number is required
+                            </span>
+                            <span *ngIf="phoneNumber?.hasError('pattern') && (phoneNumber?.touched || formSubmitted)" class="text-danger">
+                              Phone number must be exactly 10 numeric digits
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tp-checkout-input">
+                            <label>Province <span>*</span></label>
+                            <input type="text" placeholder="Province" formControlName="province">
+                            <span *ngIf="province?.hasError('required') && (province?.touched || formSubmitted)" class="text-danger">
+                              Province is required
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tp-checkout-input">
+                            <label>City <span>*</span></label>
+                            <input type="text" placeholder="City" formControlName="city">
+                            <span *ngIf="city?.hasError('required') && (city?.touched || formSubmitted)" class="text-danger">
+                              City is required
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tp-checkout-input">
+                            <label>Address <span>*</span></label>
+                            <input type="text" placeholder="Address" formControlName="address">
+                            <span *ngIf="address?.hasError('required') && (address?.touched || formSubmitted)" class="text-danger">
+                              Address is required
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tp-checkout-input">
+                            <label>Landmark (optional)</label>
+                            <input type="text" placeholder="Landmark" formControlName="landMark">
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tp-checkout-input">
+                            <label>Label <span>*</span></label>
+                            <app-nice-select
+                              [options]="labelOptions"
+                              name="label"
+                              [defaultCurrent]="0"
+                              (onChange)="changeLabelHandler($event)"
+                              placeholder="Select Label">
+                            </app-nice-select>
+                            <span *ngIf="label?.hasError('required') && (label?.touched || formSubmitted)" class="text-danger">
+                              Label is required
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <button type="button" class="tp-checkout-btn" (click)="saveBilling()" [disabled]="isLoading">
+                            {{ isLoading ? 'Saving...' : (editingBillingId ? 'Update Address' : 'Save Address') }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <!-- checkout place order -->
+                <div class="tp-checkout-place white-bg">
+                  <h3 class="tp-checkout-place-title">Your Order</h3>
+
+                  <div class="tp-order-info-list">
+                    <ul>
+                      <!-- header -->
+                      <li class="tp-order-info-list-header">
+                        <h4>Product</h4>
+                        <h4>Total</h4>
+                      </li>
+
+                      <!-- item list -->
+                      <li *ngFor="let item of cartService.getCartProducts()" class="tp-order-info-list-desc">
+                        <p>{{item.productName}} <span> x {{item.orderQuantity || 1}}</span></p>
+                        <span *ngIf="item.discountPercentage && item.discountPercentage > 0; else noItemDiscount">
+                          Nrs.{{ ((item.productUnitPrice || 0) - ((item.productUnitPrice || 0) * (item.discountPercentage || 0) / 100)).toFixed(2) }}
+                        </span>
+                        <ng-template #noItemDiscount>
+                          <span>Nrs.{{ (item.productUnitPrice || 0).toFixed(2) }}</span>
+                        </ng-template>
+                      </li>
+
+                      <!-- subtotal -->
+                      <li class="tp-order-info-list-subtotal">
+                        <span>Subtotal</span>
+                        <span>Nrs.{{ (cartService.totalPriceQuantity()?.total || 0).toFixed(2) }}</span>
+                      </li>
+
+                      <!-- coupon discount -->
+                      <li *ngIf="appliedCoupon" class="tp-order-info-list-subtotal">
+                        <span>Coupon Discount ({{ appliedCoupon.discountPercent }}%)</span>
+                        <span>-Nrs.{{ (((cartService.totalPriceQuantity()?.total || 0) * appliedCoupon.discountPercent) / 100).toFixed(2) }}</span>
+                      </li>
+
+                      <!-- shipping -->
+                      <li class="tp-order-info-list-shipping">
+                        <span>Shipping</span>
+                        <div class="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
+                          <span>
+                            <input id="flat_rate" type="radio" name="shipping">
+                            <label (click)="handleShippingCost(20)" for="flat_rate">Flat rate:
+                              <span>Nrs.20.00</span></label>
+                          </span>
+                          <span>
+                            <input id="local_pickup" type="radio" name="shipping">
+                            <label (click)="handleShippingCost(25)" for="local_pickup">Local pickup:
+                              <span>Nrs.25.00</span></label>
+                          </span>
+                        </div>
+                      </li>
+
+                      <!-- total -->
+                      <li class="tp-order-info-list-total">
+                        <span>Total</span>
+                        <span>Nrs.{{ calculateTotal().toFixed(2) }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="tp-checkout-payment">
+                    <div class="tp-checkout-payment-item">
+                      <input type="radio" id="fonepay" name="payment" [checked]="payment_name === 'FonePay'">
+                      <label (click)="handlePayment('FonePay')" for="fonepay">FonePay</label>
+                      <div *ngIf="payment_name === 'FonePay'" class="tp-checkout-payment-desc fonepay">
+                        <p>Pay using FonePay. You will be redirected to the FonePay payment gateway.</p>
+                      </div>
+                    </div>
+                    <div class="tp-checkout-payment-item">
+                      <input type="radio" id="cod" name="payment" [checked]="payment_name === 'Cod'">
+                      <label (click)="handlePayment('Cod')" for="cod">Cash on Delivery</label>
+                      <div *ngIf="payment_name === 'Cod'" class=".tp-checkout-payment-desc cod">
+                        <p>Pay with cash upon delivery of your order.</p>
+                      </div>
+                    </div>
+                    <div class="tp-checkout-payment-item">
+                      <input type="radio" id="esewa" name="payment" [checked]="payment_name === 'Esewa'">
+                      <label (click)="handlePayment('Esewa')" for="esewa">Esewa</label>
+                      <div *ngIf="payment_name === 'Esewa'" class="tp-checkout-payment-desc esewa">
+                        <p>Pay using Esewa. You will be redirected to the Esewa payment gateway.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tp-checkout-btn-wrapper">
+                    <button type="submit" class="tp-checkout-btn w-100" [disabled]="!selectedBillingId || !payment_name || isLoading">
+                      {{ isLoading ? 'Placing Order...' : 'Place Order' }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+  <!-- checkout area end -->
+</main>
+
+<!-- footer start -->
+<app-footer-one [primary_style]="true"></app-footer-one>
+<!-- footer end -->

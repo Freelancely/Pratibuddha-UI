@@ -1,0 +1,98 @@
+<div class="users-container">
+  <div class="page-header">
+    <h1 class="page-title">Users</h1>
+    <p class="page-subtitle">Manage customer details efficiently</p>
+    <button class="export-button" (click)="exportToExcel()">
+      <i class="fas fa-file-excel" style="margin-right: 8px;"></i>
+      Export to Excel
+    </button>
+  </div>
+
+  <div class="users-table" *ngIf="users.length > 0; else noUsers">
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.phoneNumber }}</td>
+          <td [ngClass]="{'status-active': !user.isBanned, 'status-banned': user.isBanned}">
+            {{ user.isBanned ? 'Banned' : 'Active' }}
+          </td>
+          <td>
+            <button class="action-button soft-delete"
+                    [disabled]="user.isBanned"
+                    (click)="openConfirmModal(user.userId, 'soft')">
+              Soft Delete
+            </button>
+            <button class="action-button permanent-delete"
+                    (click)="openConfirmModal(user.userId, 'permanent')">
+              Permanent Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noUsers>
+    <div class="no-users">No users found.</div>
+  </ng-template>
+
+  <div class="pagination" *ngIf="totalCount > pageSize">
+    <button [disabled]="pageNumber === 1" (click)="changePage(pageNumber - 1)">
+      <i class="fa fa-chevron-left"></i>
+    </button>
+    <span class="page-info">{{ pageNumber }} / {{ totalPages }}</span>
+    <button [disabled]="pageNumber === totalPages" (click)="changePage(pageNumber + 1)">
+      <i class="fa fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Confirmation Modal for Soft Delete -->
+  <div class="modal-overlay" *ngIf="showSoftDeleteModal" (click)="closeModal('soft')">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Ban User</h2>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to ban this user?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-button cancel" (click)="closeModal('soft')">Cancel</button>
+        <button class="modal-button confirm soft" (click)="confirmAction('soft')">Ban</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal for Permanent Delete -->
+  <div class="modal-overlay" *ngIf="showPermanentDeleteModal" (click)="closeModal('permanent')">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Permanently Delete User</h2>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to permanently delete this user?</p>
+        <p>This action cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-button cancel" (click)="closeModal('permanent')">Cancel</button>
+        <button class="modal-button confirm permanent" (click)="confirmAction('permanent')">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

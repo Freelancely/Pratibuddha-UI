@@ -1,0 +1,74 @@
+<div [ngClass]="'tp-product-item-3 ' + (primary_style ? 'tp-product-style-primary' : '') + ' mb-50 ' + (isCenter ? 'text-center' : '')">
+  <div class="tp-product-thumb-3 mb-15 fix p-relative z-index-1"
+    [ngStyle]="{'background-color': style_2 ? '#f6f6f6' : '#fff'}">
+    <a [routerLink]="['/shop/shop-details', product.productId]">
+      <img [src]="product.productImageUrl[0]?.img" alt="product-img" *ngIf="product.productImageUrl && product.productImageUrl.length > 0">
+    </a>
+
+    <!-- Product badge -->
+    <div class="tp-product-badge" *ngIf="productStatus(product)">
+      <span class="product-hot">out-of-stock</span>
+    </div>
+
+    <div *ngIf="product.discountPercentage !== null && product.discountPercentage !== undefined && product.discountPercentage > 0" class="tp-product-badge-3">
+      <span class="product-discount">{{product.discountPercentage}}%</span>
+    </div>
+
+    <!-- Product action -->
+    <div class="tp-product-action-3 tp-product-action-blackStyle">
+      <div class="tp-product-action-item-3 d-flex flex-column">
+        <button *ngIf="!isItemInCart(product)" (click)="addToCart(product); $event.stopPropagation()" type="button" class="tp-product-action-btn-3 tp-product-add-cart-btn">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- SVG paths remain unchanged -->
+          </svg>
+          <span class="tp-product-tooltip">Add to Cart</span>
+        </button>
+        <a routerLink="/shop/cart" *ngIf="isItemInCart(product)" type="button" class="tp-product-action-btn-3 tp-product-add-cart-btn" [class.active]="isItemInCart(product)">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- SVG paths remain unchanged -->
+          </svg>
+          <span class="tp-product-tooltip">View Cart</span>
+        </a>
+        <button type="button" class="tp-product-action-btn-3 tp-product-quick-view-btn" data-bs-toggle="modal" [attr.data-bs-target]="'#' + utilsService.modalId"
+          (click)="utilsService.handleOpenModal('product-modal-' + product.productId, product); $event.stopPropagation()">
+          <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- SVG paths remain unchanged -->
+          </svg>
+          <span class="tp-product-tooltip">Quick View</span>
+        </button>
+        <button (click)="addToWishlist(product); $event.stopPropagation()" type="button" class="tp-product-action-btn-3 tp-product-add-to-wishlist-btn" [class.active]="isItemInWishlist(product)">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- SVG paths remain unchanged -->
+          </svg>
+          <span class="tp-product-tooltip">Add To Wishlist</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="tp-product-add-cart-btn-large-wrapper">
+      <button (click)="addToCart(product); $event.stopPropagation()" type="button" class="tp-product-add-cart-btn-large">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+  <div class="tp-product-content-3">
+    <div class="tp-product-tag-3">
+      <span>{{product.categoryName}}</span>
+    </div>
+    <h3 class="tp-product-title-3">
+      <a [routerLink]="['/shop/shop-details', product.productId]">{{product.productName}}</a>
+    </h3>
+
+    <div class="tp-product-price-wrapper-3">
+      <ng-container *ngIf="product.discountPercentage !== null && product.discountPercentage !== undefined && product.discountPercentage > 0; else noDiscount">
+        <span class="tp-product-price-3 new-price">
+          Nrs.{{ (product.productUnitPrice ? (product.productUnitPrice - (product.productUnitPrice * product.discountPercentage / 100)) : 0).toFixed(2) }}
+        </span>
+        <span class="tp-product-price-3 old-price">Nrs.{{ (product.productUnitPrice ?? 0).toFixed(2) }}</span>
+      </ng-container>
+      <ng-template #noDiscount>
+        <span class="tp-product-price-3 new-price">Nrs.{{ (product.productUnitPrice ?? 0).toFixed(2) }}</span>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.profile__ticket {
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #f8f9fa;
+    }
+
+    // Status-specific styles
+    .status-placed {
+      color: #007bff; // Blue for newly placed orders
+      font-weight: 500;
+    }
+
+    .status-confirmed {
+      color: #17a2b8; // Cyan for confirmed orders
+      font-weight: 500;
+    }
+
+    .status-dispatched {
+      color: #28a745; // Green for dispatched orders
+      font-weight: 500;
+    }
+
+    .status-cancelled {
+      color: #dc3545; // Red for cancelled orders
+      font-weight: 500;
+    }
+
+    .status-returned {
+      color: #ffc107; // Yellow for returned orders
+      font-weight: 500;
+    }
+
+    .status-completed {
+      color: #6f42c1; // Purple for completed orders
+      font-weight: 500;
+    }
+  }
+}
