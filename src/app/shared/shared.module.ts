@@ -18,6 +18,8 @@ import { FooterOneComponent } from './footer/footer-one/footer-one.component';
 import { FooterTwoComponent } from './footer/footer-two/footer-two.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { HeaderSearchComponent } from './header/header-com/header-search/header-search.component';
+import { SiteHeaderComponent } from './header/site-header/site-header.component';
+import { SiteFooterComponent } from './footer/site-footer/site-footer.component';
 
 // components
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
@@ -75,6 +77,7 @@ import { PaginationTwoComponent } from './ui/pagination-two/pagination-two.compo
     SocialLinksComponent,
     PaginationComponent,
     HeaderSearchComponent,
+    SiteHeaderComponent,
     BlogSidebarComponent,
     JewelryBannerComponent,
     ElectronicProductBannerComponent,
@@ -115,7 +118,8 @@ import { PaginationTwoComponent } from './ui/pagination-two/pagination-two.compo
     ProductDetailsWrapperComponent,
     CountdownTimerComponent,
     MobileSidebarComponent,
-    PaginationTwoComponent
+    PaginationTwoComponent,
+    SiteFooterComponent
   ],
   imports: [
     CommonModule,
@@ -129,6 +133,8 @@ import { PaginationTwoComponent } from './ui/pagination-two/pagination-two.compo
     HeaderThreeComponent,
     HeaderTwoComponent,
     FooterTwoComponent,
+    SiteHeaderComponent,
+    SiteFooterComponent,
     PaginationComponent,
     BlogSidebarComponent,
     JewelryBannerComponent,
