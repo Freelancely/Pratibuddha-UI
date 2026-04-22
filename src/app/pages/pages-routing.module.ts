@@ -63,7 +63,7 @@ const routes: Routes = [
       { path: 'search', component: SearchComponent, title: 'Search Page' },
       { path: 'confirm-email', component: ConfirmEmailComponent, title: 'Confirm Email Page' },
 
-      { path: '', redirectTo: '/home/beauty', pathMatch: 'full' } // ✅ FIXED: Direct to home
+      { path: '', redirectTo: '/home/electronics', pathMatch: 'full' } // ✅ FIXED: Direct to home
     ]
   },
 

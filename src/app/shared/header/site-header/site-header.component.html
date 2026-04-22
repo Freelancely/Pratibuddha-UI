@@ -1,0 +1,105 @@
+<header class="pb-site-header" [class.pb-site-header--sticky]="sticky">
+  <div class="pb-site-header__top">
+    <div class="container">
+      <div class="pb-site-header__row">
+        <a class="pb-site-header__brand" routerLink="/home/electronics" aria-label="Pratibuddha Home">
+          <span class="pb-site-header__logo-mark" aria-hidden="true"></span>
+          <span class="pb-site-header__brand-text">Pratibuddha</span>
+        </a>
+
+        <nav class="pb-site-header__nav d-none d-lg-flex" aria-label="Primary">
+          <a class="pb-site-header__nav-link" routerLink="/shop-filter-dropdown">Shop</a>
+          <div class="pb-site-header__nav-dropdown">
+            <button class="pb-site-header__nav-link pb-site-header__nav-link--button" type="button">
+              Categories
+              <span class="pb-site-header__chev" aria-hidden="true"></span>
+            </button>
+            <div class="pb-site-header__mega">
+              <div class="pb-site-header__mega-col">
+                <h6 class="pb-site-header__mega-title">Entertainment</h6>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">TVs</a>
+              </div>
+              <div class="pb-site-header__mega-col">
+                <h6 class="pb-site-header__mega-title">Large Appliances</h6>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Refrigerators</a>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Washing Machines</a>
+              </div>
+              <div class="pb-site-header__mega-col">
+                <h6 class="pb-site-header__mega-title">Kitchen</h6>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Microwaves</a>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Ovens</a>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Air Fryers</a>
+              </div>
+              <div class="pb-site-header__mega-col">
+                <h6 class="pb-site-header__mega-title">Accessories</h6>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Cables</a>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Chargers</a>
+                <a routerLink="/shop-filter-dropdown" class="pb-site-header__mega-link">Cases</a>
+              </div>
+            </div>
+          </div>
+          <a class="pb-site-header__nav-link" routerLink="/pages/contact">Support</a>
+          <a class="pb-site-header__nav-link" routerLink="/pages/coupons">Deals</a>
+        </nav>
+
+        <div class="pb-site-header__actions">
+          <form class="pb-site-header__search d-none d-md-flex" (ngSubmit)="handleSearchSubmit()">
+            <input
+              type="text"
+              name="searchText"
+              [(ngModel)]="searchText"
+              placeholder="Search TVs, fridges, washing machines…"
+              aria-label="Search products"
+            />
+            <button type="submit" aria-label="Search">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.9999 19L14.6499 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+
+          <a class="pb-site-header__icon-btn d-none d-sm-inline-flex" routerLink="/pages/login" aria-label="Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12c2.7614 0 5-2.2386 5-5S14.7614 2 12 2 7 4.2386 7 7s2.2386 5 5 5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 22c0-4.4183 3.5817-8 8-8s8 3.5817 8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <button
+            type="button"
+            class="pb-site-header__icon-btn"
+            (click)="cartService.handleOpenCartSidebar()"
+            aria-label="Cart"
+          >
+            <svg width="20" height="20" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.48626 20.5H14.8341C17.9004 20.5 20.2528 19.3924 19.5847 14.9348L18.8066 8.89359C18.3947 6.66934 16.976 5.81808 15.7311 5.81808H5.55262C4.28946 5.81808 2.95308 6.73341 2.4771 8.89359L1.69907 14.9348C1.13157 18.889 3.4199 20.5 6.48626 20.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.34902 5.5984C6.34902 3.21232 8.28331 1.27803 10.6694 1.27803V1.27803C11.8184 1.27316 12.922 1.72619 13.7362 2.53695C14.5504 3.3477 15.0081 4.44939 15.0081 5.5984V5.5984" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="pb-site-header__badge" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+          </button>
+
+          <button
+            type="button"
+            class="pb-site-header__icon-btn d-lg-none"
+            (click)="utilsService.handleOpenMobileMenu()"
+            aria-label="Open menu"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="16" viewBox="0 0 30 16">
+              <rect x="10" width="20" height="2" fill="currentColor"/>
+              <rect x="5" y="7" width="25" height="2" fill="currentColor"/>
+              <rect x="10" y="14" width="20" height="2" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- cart sidebar (existing shared component) -->
+<app-cart-sidebar></app-cart-sidebar>
+
+<!-- mobile sidebar (existing shared component) -->
+<app-mobile-sidebar product_type="electronics"></app-mobile-sidebar>
+

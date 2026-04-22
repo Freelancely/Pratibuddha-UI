@@ -14,7 +14,7 @@ export class BeautyTestimonialComponent {
     {
       id: 1,
       review: 4,
-      desc: "Smooth texture, pleasant scent, and gentle on skin. Visible results and perfect for daily use — truly a great cosmetic choice!",
+      desc: "Sleek design, powerful features, and easy to use. Great performance and perfect for daily use — truly a great appliance choice!",
       user: "/assets/img/users/user-1.jpg",
       name: "Swagat Gautam",
       designation: "Customer",
@@ -22,7 +22,7 @@ export class BeautyTestimonialComponent {
     {
       id: 2,
       review: 3.5,
-      desc: "Smooth texture, pleasant scent, and gentle on skin. Visible results and perfect for daily use — truly a great cosmetic choice!",
+      desc: "Sleek design, powerful features, and easy to use. Great performance and perfect for daily use — truly a great appliance choice!",
       user: "/assets/img/users/user-2.jpg",
       name: "Swagat Gautam",
       designation: "Customer",
@@ -30,7 +30,7 @@ export class BeautyTestimonialComponent {
     {
       id: 3,
       review: 5,
-      desc: "Smooth texture, pleasant scent, and gentle on skin. Visible results and perfect for daily use — truly a great cosmetic choice!",
+      desc: "Sleek design, powerful features, and easy to use. Great performance and perfect for daily use — truly a great appliance choice!",
       user: "/assets/img/users/user-3.jpg",
       name: "Swagat Gautam",
       designation: "Customer",

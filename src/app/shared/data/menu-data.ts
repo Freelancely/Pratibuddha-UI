@@ -3,7 +3,7 @@ import { IMenuItem, IMobileType } from "@/types/menu-d-type";
 export const menu_data:IMenuItem[] = [
   {
     id:1,
-    link:'/home/beauty',
+    link:'/home/electronics',
     title:'Home',
   },
   {
@@ -11,25 +11,15 @@ export const menu_data:IMenuItem[] = [
     link:'/shop-filter-dropdown',
     title:'Shop',
   },
-  // {
-  //   id:3,
-  //   link:'/makeup',
-  //   title:'Makeup',
-  // },
+  {
+    id:3,
+    link:'/pages/coupons',
+    title:'Deals',
+  },
   {
     id:4,
-    link:'/pages/coupons',
-    title:'Coupons',
-  },
-  // {
-  //   id:5,
-  //   link:'/pages/blog-grid',
-  //   title:'Blog',
-  // },
-  {
-    id:5,
     link:'/pages/contact',
-    title:'Contact',
+    title:'Support',
   },
 ]
 
@@ -39,30 +29,30 @@ export const mobile_menu:IMobileType[] = [
     id: 1,
     single_link: true,
     title: 'Home',
-    link: '/home/beauty',
+    link: '/home/electronics',
   },
   {
     id: 2,
     single_link: true,
-    title: 'Products',
+    title: 'Shop',
     link: '/shop-filter-dropdown',
   },
   {
-    id: 4,
+    id: 3,
     sub_menu: true,
-    title: 'eCommerce',
-    link: '/shop/cart',
+    title: 'Categories',
+    link: '/shop-filter-dropdown',
     sub_menus: [
-      {title:'Shopping Cart',link:'/shop/cart'},
-      // {title:'Track Your Order',link:'/shop/order'},
-      {title:'Compare',link:'/shop/compare'},
-      {title:'Wishlist',link:'/shop/wishlist'},
-      {title:'Checkout',link:'/pages/checkout'},
-      {title:'My account',link:'/pages/profile'}
+      {title:'TVs',link:'/shop-filter-dropdown'},
+      {title:'Refrigerators',link:'/shop-filter-dropdown'},
+      {title:'Washing Machines',link:'/shop-filter-dropdown'},
+      {title:'Kitchen Appliances',link:'/shop-filter-dropdown'},
+      {title:'Small Appliances',link:'/shop-filter-dropdown'},
+      {title:'Accessories',link:'/shop-filter-dropdown'}
     ],
   },
   {
-    id: 5,
+    id: 4,
     sub_menu: true,
     title: 'Account',
     link: '/login',
@@ -75,21 +65,15 @@ export const mobile_menu:IMobileType[] = [
     ],
   },
   {
-    id: 6,
+    id: 5,
     single_link: true,
-    title: 'Coupons',
+    title: 'Deals',
     link: '/pages/coupons',
   },
-  // {
-  //   id: 7,
-  //   single_link: true,
-  //   title: 'Blogs',
-  //   link: '/pages/blog-grid',
-  // },
   {
-    id: 7,
+    id: 6,
     single_link: true,
-    title: 'Contact',
+    title: 'Support',
     link: '/pages/contact',
   },
 ]

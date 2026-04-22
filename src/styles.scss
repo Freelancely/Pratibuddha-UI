@@ -5,3 +5,38 @@
 @forward './assets/css/flaticon_shofy.css';
 @forward './assets/css/animate.css';
 @forward './assets/scss/main.scss';
+
+:root {
+  /* Brand tokens (new electronics theme) */
+  --pb-primary: #1E3A8A !important;   /* deep blue */
+  --pb-primary-2: #2563EB !important; /* brighter hover */
+  --pb-accent: #F97316 !important;    /* sharp accent */
+  --pb-ink: #0F172A !important;       /* slate */
+
+  /* Template token overrides */
+  --tp-theme-primary: var(--pb-primary) !important;
+  --tp-theme-secondary: var(--pb-ink) !important;
+
+  /* Typography: modern system UI */
+  --tp-ff-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+  --tp-ff-heading: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+  --tp-ff-p: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+
+  /* Base colors */
+  --tp-common-white: #ffffff !important;
+  --tp-common-black: #000000 !important;
+
+  /* Neutral greys */
+  --tp-grey-1: #f8fafc !important;
+  --tp-grey-2: #f1f5f9 !important;
+
+  /* Text scale */
+  --tp-theme-1: var(--pb-ink) !important;
+  --tp-theme-2: #334155 !important;
+  --tp-theme-3: #64748B !important;
+}
+
+body {
+  background-color: var(--tp-common-white) !important;
+  color: var(--tp-theme-1) !important;
+}

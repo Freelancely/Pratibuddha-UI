@@ -13,7 +13,7 @@ export class HeaderSearchComponent {
   public productType: string = '';
   constructor (public utilsService:UtilsService,private router: Router){};
 
-  public categories: string[] = ["makeup", "fashion", "beauty", "accessories"];
+  public categories: string[] = ["electronics", "appliances", "fashion", "accessories"];
 
   handleProductType(productType: string) {
     this.productType = productType;

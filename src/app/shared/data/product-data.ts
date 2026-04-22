@@ -4,8 +4,8 @@ const product_data: IProduct[] = [
   {
     productId: "64250d8e253d81bc860d4d26", // Changed from id
     sku: "DCB7SDVX60",
-    productName: "Carlys Cosmetics", // Changed from title
-    slug: "inika-mineral-sunkissed",
+    productName: "Samsung Smart Fridge", // Changed from title
+    slug: "samsung-smart-fridge",
     unit: "15pcs",
     productImageUrl: [
       {
@@ -13,74 +13,65 @@ const product_data: IProduct[] = [
           name: "Purple Brown",
           clrCode: "#664536",
         },
-        img: "https://i.ibb.co/qNn6Pqy/powder-1.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Open_refrigerator_with_food_at_night.jpg/500px-Open_refrigerator_with_food_at_night.jpg",
       },
       {
         color: {
           name: "Potters Clay",
           clrCode: "#8B5A39",
         },
-        img: "https://i.ibb.co/4RJLN3h/powder-2.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Open_refrigerator_with_food_at_night.jpg/500px-Open_refrigerator_with_food_at_night.jpg",
       },
       {
         color: {
           name: "Antique Brass",
           clrCode: "#BF8A63",
         },
-        img: "https://i.ibb.co/8PV5cC4/powder-3.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Open_refrigerator_with_food_at_night.jpg/500px-Open_refrigerator_with_food_at_night.jpg",
       },
       {
         color: {
           name: "Pale Taupe",
           clrCode: "#BD9B76",
         },
-        img: "https://i.ibb.co/zJ9SWcP/powder-4.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Open_refrigerator_with_food_at_night.jpg/500px-Open_refrigerator_with_food_at_night.jpg",
       },
     ], // Changed from imageURLs
-    parent: "Discover Skincare",
-    children: "Face Powder",
+    parent: "Home Appliances",
+    children: "Refrigerators",
     price: 85,
     discount: 5,
     quantity: 15,
     brand: {
-      name: "INIKA",
+      name: "Samsung",
     },
     category: {
-      name: "Discover Skincare",
+      name: "Home Appliances",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Capacity",
+        value: "28 cu. ft.",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Energy Rating",
+        value: "A++",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "Finish",
+        value: "Stainless steel",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Smart Features",
+        value: "Wi‑Fi, temperature zones, door alerts",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Warranty",
+        value: "2 years manufacturer warranty",
       },
     ],
     tags: ["inika", "sunkissed"],
@@ -91,8 +82,8 @@ const product_data: IProduct[] = [
   {
     productId: "642515c0253d81bc860d4da3", // Changed from id
     sku: "DEB7SDVX62",
-    productName: "Grand Plumping Highlighter", // Changed from title
-    slug: "grand-plumping-highlighter",
+    productName: "LG Front Load Washing Machine", // Changed from title
+    slug: "lg-washing-machine",
     unit: "10pcs",
     productImageUrl: [
       {
@@ -100,78 +91,69 @@ const product_data: IProduct[] = [
           name: "Burning Sand",
           clrCode: "#D18F7C",
         },
-        img: "https://i.ibb.co/whwFFGX/lip-liner-1.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg/500px-LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg",
       },
       {
         color: {
           name: "Antique Brass",
           clrCode: "#C88B6A",
         },
-        img: "https://i.ibb.co/h9PYFHJ/lip-liner-2.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg/500px-LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg",
       },
       {
         color: {
           name: "Pinkish Tan",
           clrCode: "#D1A08F",
         },
-        img: "https://i.ibb.co/LYr2Nkp/lip-liner-3.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg/500px-LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg",
       },
     ], // Changed from imageURLs
-    parent: "Beauty of Skin",
-    children: "Lip Liner",
+    parent: "Smart Appliances",
+    children: "Washing Machines",
     price: 60,
     discount: 5,
     quantity: 15,
     brand: {
-      name: "INIKA",
+      name: "LG",
     },
     category: {
-      name: "Beauty of Skin",
+      name: "Smart Appliances",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Capacity",
+        value: "8 kg",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Motor",
+        value: "Inverter Direct Drive",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "Spin Speed",
+        value: "1200 RPM",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Programs",
+        value: "Quick wash, cotton, eco, delicates",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Warranty",
+        value: "2 years manufacturer warranty",
       },
     ],
-    tags: ["beauty of skin", "lip liner"],
+    tags: ["smart appliances", "washing machines"],
     featured: false,
     sellCount: 3,
   },
   {
     productId: "64251bc0253d81bc860d4db5", // Changed from id
     sku: "DFB7SDVX62",
-    productName: "Brand Cosmetic Product", // Changed from title
-    slug: "brand-cosmetic-product",
+    productName: "Panasonic Inverter Microwave", // Changed from title
+    slug: "panasonic-microwave",
     unit: "12pcs",
     productImageUrl: [
       {
@@ -179,70 +161,61 @@ const product_data: IProduct[] = [
           name: "Barney",
           clrCode: "#BF1EB2",
         },
-        img: "https://i.ibb.co/vmJzZk4/cosmetics-1.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Panasonic_NN-SD69LS_20220410.jpg/500px-Panasonic_NN-SD69LS_20220410.jpg",
       },
       {
         color: {
           name: "Yellow Ochre",
           clrCode: "#C99E01",
         },
-        img: "https://i.ibb.co/kG1N7m8/cosmetics-2.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Panasonic_NN-SD69LS_20220410.jpg/500px-Panasonic_NN-SD69LS_20220410.jpg",
       },
       {
         color: {
           name: "Rich Electric Blue",
           clrCode: "#0393C9",
         },
-        img: "https://i.ibb.co/GTJ77k0/cosmetics-3.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Panasonic_NN-SD69LS_20220410.jpg/500px-Panasonic_NN-SD69LS_20220410.jpg",
       },
     ], // Changed from imageURLs
-    parent: "Awesome Lip Care",
-    children: "Cosmetics",
+    parent: "Entertainment",
+    children: "Microwaves",
     price: 70,
     discount: 3,
     quantity: 8,
     brand: {
-      name: "INIKA",
+      name: "Panasonic",
     },
     category: {
-      name: "Awesome Lip Care",
+      name: "Entertainment",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Power",
+        value: "1000W",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Capacity",
+        value: "32 L",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "Technology",
+        value: "Inverter heating",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Modes",
+        value: "Reheat, defrost, grill",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Warranty",
+        value: "1 year manufacturer warranty",
       },
     ],
-    tags: ["awesome lip care", "cosmetics"],
+    tags: ["entertainment", "microwaves"],
     featured: true,
     sellCount: 1,
     sizes: [],
@@ -250,8 +223,8 @@ const product_data: IProduct[] = [
   {
     productId: "64252172253d81bc860d4dbe", // Changed from id
     sku: "DGB7SDVX62",
-    productName: "Wet Dewy Cream Beige", // Changed from title
-    slug: "wet-dewy-cream-beige",
+    productName: "Sony Bravia 4K TV", // Changed from title
+    slug: "sony-bravia-4k-tv",
     unit: "12pcs",
     productImageUrl: [
       {
@@ -259,85 +232,76 @@ const product_data: IProduct[] = [
           name: "Lion",
           clrCode: "#BE9770",
         },
-        img: "https://i.ibb.co/p06Mk0H/makeup-1.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Cptvdisplay.jpg/500px-Cptvdisplay.jpg",
       },
       {
         color: {
           name: "Pickled Bean",
           clrCode: "#654631",
         },
-        img: "https://i.ibb.co/9ttBnfM/makeup-2.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Cptvdisplay.jpg/500px-Cptvdisplay.jpg",
       },
       {
         color: {
           name: "Tumbleweed",
           clrCode: "#D4A987",
         },
-        img: "https://i.ibb.co/sbpNm8n/makeup-3.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Cptvdisplay.jpg/500px-Cptvdisplay.jpg",
       },
       {
         color: {
           name: "Bullet Shell",
           clrCode: "#BC955E",
         },
-        img: "https://i.ibb.co/M5z3jP1/makeup-4.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Cptvdisplay.jpg/500px-Cptvdisplay.jpg",
       },
     ], // Changed from imageURLs
-    parent: "Facial Care",
-    children: "Makeup Brush",
+    parent: "Gadgets",
+    children: "Televisions",
     price: 90,
     discount: 5,
     quantity: 6,
     brand: {
-      name: "INIKA",
+      name: "Sony",
     },
     category: {
-      name: "Facial Care",
+      name: "Gadgets",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Screen Size",
+        value: "65-inch",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Resolution",
+        value: "4K Ultra HD",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "HDR",
+        value: "HDR10 / Dolby Vision",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Smart OS",
+        value: "Google TV",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Connectivity",
+        value: "Wi‑Fi, Bluetooth, HDMI, USB",
       },
     ],
-    tags: ["facial care", "makeup brush"],
+    tags: ["gadgets", "televisions"],
     featured: false,
     sellCount: 1,
   },
   {
     productId: "6426a68a253d81bc860d5ea6", // Changed from id
     sku: "EGB7SDVX68",
-    productName: "Tea Tree Lemon For Fine Hair", // Changed from title
-    slug: "tea-tree-lemon-for-fine-hair",
+    productName: "Whirlpool Convection Oven", // Changed from title
+    slug: "whirlpool-oven",
     unit: "100ml",
     productImageUrl: [
       {
@@ -345,78 +309,69 @@ const product_data: IProduct[] = [
           name: "Rangoon Green",
           clrCode: "#142014",
         },
-        img: "https://i.ibb.co/mvRsPK5/cosmetics-4.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tabletop_convection_oven.jpg/500px-Tabletop_convection_oven.jpg",
       },
       {
         color: {
           name: "Rangoon Green",
           clrCode: "#142014",
         },
-        img: "https://i.ibb.co/rkk6dXX/cosmetics-5.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tabletop_convection_oven.jpg/500px-Tabletop_convection_oven.jpg",
       },
       {
         color: {
           name: "Rangoon Green",
           clrCode: "#142014",
         },
-        img: "https://i.ibb.co/TMJPG3B/cosmetics-6.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tabletop_convection_oven.jpg/500px-Tabletop_convection_oven.jpg",
       },
     ], // Changed from imageURLs
-    parent: "Discover Skincare",
-    children: "Makeup Brush",
+    parent: "Home Appliances",
+    children: "Televisions",
     price: 45,
     discount: 0,
     quantity: 8,
     brand: {
-      name: "INIKA",
+      name: "Whirlpool",
     },
     category: {
-      name: "Discover Skincare",
+      name: "Home Appliances",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Type",
+        value: "Convection oven",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Capacity",
+        value: "35 L",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "Functions",
+        value: "Bake, toast, grill",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Controls",
+        value: "Knob + timer",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Warranty",
+        value: "1 year manufacturer warranty",
       },
     ],
-    tags: ["discover skincare", "makeup brush"],
+    tags: ["home appliances", "televisions"],
     featured: false,
     sellCount: 0,
   },
   {
     productId: "6426ab33253d81bc860d5f86", // Changed from id
     sku: "FGB7SDVX68",
-    productName: "Mielle Rosemary Mint Scalp", // Changed from title
-    slug: "mielle-rosemary-mint-scalp",
+    productName: "Bosch Dishwasher", // Changed from title
+    slug: "bosch-dishwasher",
     unit: "200ml",
     productImageUrl: [
       {
@@ -424,78 +379,69 @@ const product_data: IProduct[] = [
           name: "Iridium",
           clrCode: "#3C3C3D",
         },
-        img: "https://i.ibb.co/bdKTWYy/skin-1.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dishwasher_with_dishes.JPG/500px-Dishwasher_with_dishes.JPG",
       },
       {
         color: {
           name: "Iridium",
           clrCode: "#3C3C3D",
         },
-        img: "https://i.ibb.co/1GtZ2qC/skin-2.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dishwasher_with_dishes.JPG/500px-Dishwasher_with_dishes.JPG",
       },
       {
         color: {
           name: "Iridium",
           clrCode: "#3C3C3D",
         },
-        img: "https://i.ibb.co/qN95THF/skin-3.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dishwasher_with_dishes.JPG/500px-Dishwasher_with_dishes.JPG",
       },
     ], // Changed from imageURLs
-    parent: "Beauty of Skin",
-    children: "Skin",
+    parent: "Smart Appliances",
+    children: "Dishwashers",
     price: 62,
     discount: 4,
     quantity: 10,
     brand: {
-      name: "Antec",
+      name: "Bosch",
     },
     category: {
-      name: "Beauty of Skin",
+      name: "Smart Appliances",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Capacity",
+        value: "12 place settings",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Noise Level",
+        value: "46 dB",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "Programs",
+        value: "Eco, auto, intensive, quick",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Drying",
+        value: "Heated drying",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Warranty",
+        value: "2 years manufacturer warranty",
       },
     ],
-    tags: ["beauty of skin", "skin"],
+    tags: ["smart appliances", "dishwashers"],
     featured: false,
     sellCount: 2,
   },
   {
     productId: "6426adba253d81bc860d6132", // Changed from id
     sku: "FCB7SDVX68",
-    productName: "Innisfree Face Wash", // Changed from title
-    slug: "innisfree face wash",
+    productName: "Dyson Air Purifier", // Changed from title
+    slug: "dyson-purifier",
     unit: "150ml",
     productImageUrl: [
       {
@@ -503,78 +449,69 @@ const product_data: IProduct[] = [
           name: "Faded Green",
           clrCode: "#80AF6B",
         },
-        img: "https://i.ibb.co/T04BRtd/cream-1.png",
+        img: "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
       },
       {
         color: {
           name: "Summer Green",
           clrCode: "#A6B7A5",
         },
-        img: "https://i.ibb.co/8YGVKhd/cream-2.png",
+        img: "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
       },
       {
         color: {
           name: "Dark Green",
           clrCode: "#1A2419",
         },
-        img: "https://i.ibb.co/D1Hw4f4/cream-3.png",
+        img: "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
       },
     ], // Changed from imageURLs
-    parent: "Awesome Lip Care",
-    children: "Cream",
+    parent: "Entertainment",
+    children: "Ovens",
     price: 68,
     discount: 3,
     quantity: 12,
     brand: {
-      name: "INIKA",
+      name: "Dyson",
     },
     category: {
-      name: "Awesome Lip Care",
+      name: "Entertainment",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Coverage",
+        value: "Up to 400 sq. ft.",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Filter",
+        value: "HEPA + activated carbon",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "Modes",
+        value: "Auto, sleep, boost",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Noise",
+        value: "Quiet mode supported",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Warranty",
+        value: "2 years manufacturer warranty",
       },
     ],
-    tags: ["awesome lip care", "cream"],
+    tags: ["entertainment", "ovens"],
     featured: false,
     sellCount: 5,
   },
   {
     productId: "6426b217253d81bc860d6217", // Changed from id
     sku: "FEB7SDVX68",
-    productName: "Blue Rescue Face Mask", // Changed from title
-    slug: "blue-rescue-face-mask",
+    productName: "Philips Air Fryer", // Changed from title
+    slug: "philips-air-fryer",
     unit: "150ml",
     productImageUrl: [
       {
@@ -582,70 +519,61 @@ const product_data: IProduct[] = [
           name: "Flame",
           clrCode: "#D74E27",
         },
-        img: "https://i.ibb.co/XsZ9vLT/beauty-1.png",
+        img: "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
       },
       {
         color: {
           name: "Flame",
           clrCode: "#D74E27",
         },
-        img: "https://i.ibb.co/9qnGsJq/beauty-2.png",
+        img: "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
       },
       {
         color: {
           name: "Flame",
           clrCode: "#D74E27",
         },
-        img: "https://i.ibb.co/1JWCCnS/beauty-3.png",
+        img: "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
       },
     ], // Changed from imageURLs
-    parent: "Facial Care",
-    children: "Powder",
+    parent: "Gadgets",
+    children: "Air Purifiers",
     price: 72,
     discount: 5,
     quantity: 15,
     brand: {
-      name: "INIKA",
+      name: "Philips",
     },
     category: {
-      name: "Facial Care",
+      name: "Gadgets",
     },
     status: "in-stock",
     reviews: [],
-    productType: "beauty",
-    productDescription:
-      "Achieve that sun-kissed glow with the Baked Mineral Bronzer from INIKA. Perfect for contouring, the loose powder adds a subtle and natural tanned tone to skin, perfectly complementing fair to medium complexions. Lightweight and non-cakey, it effortlessly sculpts and defines cheekbones to leave skin looking healthy and radiant. Certified Vegan. Cruelty free.",
+    productType: "electronics",
+    productDescription: "Experience the next generation of modern home appliances. Elevate your everyday living with intelligent features, energy efficiency, and premium design that seamlessly blends into your home.",
     additionalInformation: [
       {
-        key: "GREAT FOR LAYERING",
-        value: "Mini waffle fabric construction",
+        key: "Capacity",
+        value: "4.1 L",
       },
       {
-        key: "Colors",
-        value: "Wine Berry , Dirty Blue",
+        key: "Power",
+        value: "1400W",
       },
       {
-        key: "LEGENDARY STYLING",
-        value: "Cute keyhole notch neck with custom",
+        key: "Technology",
+        value: "Rapid Air",
       },
       {
-        key: "CUFF DETAILS",
-        value: "Velvet details with lace trim on the cuffs",
+        key: "Controls",
+        value: "Digital touch panel",
       },
       {
-        key: "FEMIMINE HEMLINE",
-        value: "Fashionable curved hem",
-      },
-      {
-        key: "Graphics Coprocessor",
-        value: "Exynos 9611, Octa Core (4x2.3GHz + 4x1.7GHz)",
-      },
-      {
-        key: "Wireless Type",
-        value: "802.11a/b/g/n/ac, Bluetooth",
+        key: "Warranty",
+        value: "1 year manufacturer warranty",
       },
     ],
-    tags: ["facial care", "powder"],
+    tags: ["gadgets", "air purifiers"],
     featured: false,
     sellCount: 0,
   },

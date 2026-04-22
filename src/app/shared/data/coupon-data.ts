@@ -29,7 +29,7 @@ const coupon_data:ICoupon[] = [
     endTime: "2024-12-01T20:19:00.000Z",
     discountPercentage: 14,
     minimumAmount: 500,
-    productType: "beauty"
+    productType: "electronics"
   },
   // {
   //   id: "645f0b95af839230b4d5084d",
