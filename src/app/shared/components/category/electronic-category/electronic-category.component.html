@@ -10,7 +10,11 @@
                 category: item.parent.toLowerCase().split(' ').join('-')
               }"
             >
-              <img [src]="item.img" alt="product-category" />
+              <img
+                [src]="item.img"
+                [attr.srcset]="item.img ? (item.img.replace('-800.webp','-400.webp') + ' 400w, ' + item.img + ' 800w') : null"
+                sizes="(max-width: 576px) 40vw, (max-width: 992px) 20vw, 160px"
+                alt="product-category" />
             </a>
           </div>
           <div class="tp-product-category-content">

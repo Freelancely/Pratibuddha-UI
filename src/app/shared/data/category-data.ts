@@ -3,7 +3,7 @@ import { ICategory } from "@/types/category-type";
 const category_data:ICategory[] = [
   {
     id: "641d424bdbfab7b02ab28b95",
-    img: "/assets/img/electronics/category/tvs.jpg",
+    img: "/assets/img/electronics/category/tvs-800.webp",
     parent: "TVs",
     children: [
       "OLED TVs",
@@ -18,7 +18,7 @@ const category_data:ICategory[] = [
   },
   {
     id: "6419723bd7dc5155c04350d4",
-    img: "/assets/img/electronics/category/refrigerators.jpg",
+    img: "/assets/img/electronics/category/refrigerators-800.webp",
     parent: "Refrigerators",
     children: [
       "French Door",
@@ -33,7 +33,7 @@ const category_data:ICategory[] = [
   },
   {
     id: "6419723bd7dc5155c04350d5",
-    img: "/assets/img/electronics/category/washing-machines.jpg",
+    img: "/assets/img/electronics/category/washing-machines-800.webp",
     parent: "Washing Machines",
     children: [
       "Front Load",
@@ -48,7 +48,7 @@ const category_data:ICategory[] = [
   },
   {
     id: "6419723bd7dc5155c04350d6",
-    img: "/assets/img/electronics/category/kitchen.jpg",
+    img: "/assets/img/electronics/category/kitchen-800.webp",
     parent: "Kitchen Appliances",
     children: [
       "Microwaves",
@@ -65,7 +65,7 @@ const category_data:ICategory[] = [
   },
   {
     id: "6419723bd7dc5155c04350d7",
-    img: "/assets/img/electronics/category/small-appliances.jpg",
+    img: "/assets/img/electronics/category/small-appliances-800.webp",
     parent: "Small Appliances",
     children: [
       "Vacuum Cleaners",
@@ -81,7 +81,7 @@ const category_data:ICategory[] = [
   },
   {
     id: "64200cb921162f8b15beae3e",
-    img: "/assets/img/electronics/category/accessories.jpg",
+    img: "/assets/img/electronics/category/accessories-800.webp",
     parent: "Accessories",
     children: [
       "Cables",

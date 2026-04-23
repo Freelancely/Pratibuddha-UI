@@ -37,13 +37,13 @@ export class AddCouponComponent implements OnInit {
   }
 
   ngOnInit() {
-    const state = history.state;
+    const state = (history.state ?? {}) as { coupon?: Coupon };
     if (state.coupon) {
       this.isEditMode = true;
-      this.couponId = state.coupon.id; // Store the coupon ID
+      this.couponId = state.coupon.couponId; // Store the coupon ID
       this.couponForm.patchValue({
         couponCode: state.coupon.couponCode,
-        CouponName: state.coupon.CouponName,
+        CouponName: state.coupon.couponName,
         startDate: this.formatDateForInput(state.coupon.startDate),
         endDate: this.formatDateForInput(state.coupon.endDate),
         discountPercent: state.coupon.discountPercent,

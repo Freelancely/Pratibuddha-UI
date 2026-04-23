@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AddCouponComponent } from './add-coupon.component';
 
@@ -8,7 +11,12 @@ describe('AddCouponComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddCouponComponent]
+      imports: [
+        AddCouponComponent,
+        HttpClientTestingModule,
+        NoopAnimationsModule,
+        ToastrModule.forRoot(),
+      ],
     })
     .compileComponents();
 

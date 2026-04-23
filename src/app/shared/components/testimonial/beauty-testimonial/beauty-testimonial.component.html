@@ -30,7 +30,11 @@
                        <div class="tp-testimonial-user-wrapper-3 d-flex">
                           <div class="tp-testimonial-user-3 d-flex align-items-center">
                              <div class="tp-testimonial-avater-3 mr-10">
-                                <img [src]="item.user" alt="">
+                                <img
+                                   [src]="item.user"
+                                   [attr.srcset]="item.user.replace('-512.webp','-256.webp') + ' 256w, ' + item.user + ' 512w'"
+                                   sizes="48px"
+                                   alt="">
                              </div>
                              <div class="tp-testimonial-user-3-info tp-testimonial-user-translate">
                                 <h3 class="tp-testimonial-user-3-title">{{item.name}} /</h3>

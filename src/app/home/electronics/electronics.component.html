@@ -19,7 +19,11 @@
             <div *ngFor="let item of featured_data" class="col-lg-4 col-md-6">
                <div class="tp-featured-item-3 text-center">
                   <div class="tp-featured-thumb-3 d-flex align-items-end justify-content-center">
-                     <img [src]="item.img" alt="feature-img">
+                     <img
+                        [src]="item.img"
+                        [attr.srcset]="item.img.replace('-800.webp','-400.webp') + ' 400w, ' + item.img + ' 800w'"
+                        sizes="(max-width: 576px) 90vw, (max-width: 992px) 45vw, 360px"
+                        alt="feature-img">
                   </div>
                   <div class="tp-featured-content-3">
                      <h3 class="tp-featured-title-3">
@@ -77,7 +81,7 @@
             <div class="col-xl-7 col-md-6">
                <div class="tp-collection-item tp-collection-height grey-bg p-relative z-index-1 fix">
                   <div class="tp-collection-thumb include-bg include-bg transition-3"
-                     style="background-image: url(/assets/img/electronics/collections/collection-kitchen.jpg);"></div>
+                     [style.backgroundImage]="collection_images.kitchen"></div>
                   <div class="tp-collection-content">
                      <span>Smart Home Collection</span>
                      <h3 class="tp-collection-title">
@@ -101,7 +105,7 @@
             <div class="col-xl-5 col-md-6">
                <div class="tp-collection-item tp-collection-height grey-bg p-relative z-index-1 fix">
                   <div class="tp-collection-thumb has-overlay include-bg transition-3"
-                     style="background-image: url(/assets/img/electronics/collections/collection-clean.jpg);">
+                     [style.backgroundImage]="collection_images.clean">
                   </div>
                   <div class="tp-collection-content-1">
                      <h3 class="tp-collection-title-1">
@@ -159,7 +163,11 @@
             <div *ngFor="let item of featured_data" class="col-lg-4 col-md-6">
                <div class="tp-featured-item-3 text-center">
                   <div class="tp-featured-thumb-3 d-flex align-items-end justify-content-center">
-                     <img [src]="item.img" alt="feature-img">
+                     <img
+                        [src]="item.img"
+                        [attr.srcset]="item.img.replace('-800.webp','-400.webp') + ' 400w, ' + item.img + ' 800w'"
+                        sizes="(max-width: 576px) 90vw, (max-width: 992px) 45vw, 360px"
+                        alt="feature-img">
                   </div>
                   <div class="tp-featured-content-3">
                      <h3 class="tp-featured-title-3">
@@ -211,7 +219,11 @@
          <div class="row row-cols-lg-6 row-cols-sm-2 row-cols-1 gx-2 gy-2 gy-lg-0">
             <div *ngFor="let item of instagram_data" class="col">
                <div class="tp-instagram-item-2 w-img">
-                  <img [src]="item.img" alt="instagram-img">
+                  <img
+                     [src]="item.img"
+                     [attr.srcset]="item.img.replace('-800.webp','-400.webp') + ' 400w, ' + item.img + ' 800w'"
+                     sizes="(max-width: 576px) 50vw, (max-width: 992px) 25vw, 16vw"
+                     alt="instagram-img">
                   <div class="tp-instagram-icon-2">
                      <a [href]="item.link" target="_blank" class="popup-image"><i
                            class="fa-brands fa-instagram"></i></a>

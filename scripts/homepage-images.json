@@ -1,0 +1,195 @@
+{
+  "defaults": {
+    "webpQuality": 82
+  },
+  "images": [
+    {
+      "slot": "hero_tv",
+      "unsplashId": "XwgC9tsm7jU",
+      "outDir": "src/assets/img/electronics/hero",
+      "baseName": "hero-tv",
+      "kind": "background",
+      "sizes": [768, 1280, 1920]
+    },
+    {
+      "slot": "hero_fridge",
+      "unsplashId": "alXdbCZoQZI",
+      "outDir": "src/assets/img/electronics/hero",
+      "baseName": "hero-fridge",
+      "kind": "background",
+      "sizes": [768, 1280, 1920]
+    },
+    {
+      "slot": "hero_washer",
+      "unsplashId": "R_pCJvo1lNQ",
+      "outDir": "src/assets/img/electronics/hero",
+      "baseName": "hero-washer",
+      "kind": "background",
+      "sizes": [768, 1280, 1920]
+    },
+    {
+      "slot": "collection_kitchen",
+      "unsplashId": "kB3eQPxN71c",
+      "outDir": "src/assets/img/electronics/collections",
+      "baseName": "collection-kitchen",
+      "kind": "background",
+      "sizes": [768, 1280, 1920]
+    },
+    {
+      "slot": "collection_clean",
+      "unsplashId": "-hNhqn--blY",
+      "outDir": "src/assets/img/electronics/collections",
+      "baseName": "collection-clean",
+      "kind": "background",
+      "sizes": [768, 1280, 1920]
+    },
+    {
+      "slot": "featured_tv",
+      "unsplashId": "XwgC9tsm7jU",
+      "outDir": "src/assets/img/electronics/featured",
+      "baseName": "featured-tv",
+      "kind": "tile",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "featured_fridge",
+      "unsplashId": "alXdbCZoQZI",
+      "outDir": "src/assets/img/electronics/featured",
+      "baseName": "featured-fridge",
+      "kind": "tile",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "featured_microwave",
+      "unsplashId": "Wj6oZNCAzs4",
+      "outDir": "src/assets/img/electronics/featured",
+      "baseName": "featured-microwave",
+      "kind": "tile",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "category_tvs",
+      "unsplashId": "XwgC9tsm7jU",
+      "outDir": "src/assets/img/electronics/category",
+      "baseName": "tvs",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "category_refrigerators",
+      "unsplashId": "alXdbCZoQZI",
+      "outDir": "src/assets/img/electronics/category",
+      "baseName": "refrigerators",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "category_washing_machines",
+      "unsplashId": "R_pCJvo1lNQ",
+      "outDir": "src/assets/img/electronics/category",
+      "baseName": "washing-machines",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "category_kitchen",
+      "unsplashId": "Wj6oZNCAzs4",
+      "outDir": "src/assets/img/electronics/category",
+      "baseName": "kitchen",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "category_small_appliances",
+      "unsplashId": "5TXz228u4eo",
+      "outDir": "src/assets/img/electronics/category",
+      "baseName": "small-appliances",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "category_accessories",
+      "unsplashId": "P7KF3cTRKcE",
+      "outDir": "src/assets/img/electronics/category",
+      "baseName": "accessories",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "instagram_1",
+      "unsplashId": "CkIEbSutcqs",
+      "outDir": "src/assets/img/electronics/instagram",
+      "baseName": "instagram-1",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "instagram_2",
+      "unsplashId": "aw6UewokOIo",
+      "outDir": "src/assets/img/electronics/instagram",
+      "baseName": "instagram-2",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "instagram_3",
+      "unsplashId": "czZumandoIQ",
+      "outDir": "src/assets/img/electronics/instagram",
+      "baseName": "instagram-3",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "instagram_4",
+      "unsplashId": "WSDMFvfGdFc",
+      "outDir": "src/assets/img/electronics/instagram",
+      "baseName": "instagram-4",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "instagram_5",
+      "unsplashId": "P7KF3cTRKcE",
+      "outDir": "src/assets/img/electronics/instagram",
+      "baseName": "instagram-5",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "instagram_6",
+      "unsplashId": "5TXz228u4eo",
+      "outDir": "src/assets/img/electronics/instagram",
+      "baseName": "instagram-6",
+      "kind": "square",
+      "sizes": [400, 800]
+    },
+    {
+      "slot": "testimonial_user_1",
+      "unsplashId": "8OWcgGeB-Rk",
+      "outDir": "src/assets/img/users",
+      "baseName": "user-1",
+      "kind": "square",
+      "sizes": [256, 512]
+    },
+    {
+      "slot": "testimonial_user_2",
+      "unsplashId": "N0e6W2WDa5U",
+      "outDir": "src/assets/img/users",
+      "baseName": "user-2",
+      "kind": "square",
+      "sizes": [256, 512]
+    },
+    {
+      "slot": "testimonial_user_3",
+      "unsplashId": "4DwRp_5Dzo0",
+      "outDir": "src/assets/img/users",
+      "baseName": "user-3",
+      "kind": "square",
+      "sizes": [256, 512]
+    }
+  ],
+  "notes": {
+    "license": "Unsplash License: free to use for commercial/non-commercial; avoid Unsplash+ content."
+  }
+}
+

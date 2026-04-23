@@ -1,0 +1,260 @@
+{
+  "generatedAt": "2026-04-23T12:24:08.972Z",
+  "results": [
+    {
+      "slot": "hero_tv",
+      "unsplashId": "XwgC9tsm7jU",
+      "output": "src/assets/img/electronics/hero/hero-tv-768.webp"
+    },
+    {
+      "slot": "hero_tv",
+      "unsplashId": "XwgC9tsm7jU",
+      "output": "src/assets/img/electronics/hero/hero-tv-1280.webp"
+    },
+    {
+      "slot": "hero_tv",
+      "unsplashId": "XwgC9tsm7jU",
+      "output": "src/assets/img/electronics/hero/hero-tv-1920.webp"
+    },
+    {
+      "slot": "hero_fridge",
+      "unsplashId": "alXdbCZoQZI",
+      "output": "src/assets/img/electronics/hero/hero-fridge-768.webp"
+    },
+    {
+      "slot": "hero_fridge",
+      "unsplashId": "alXdbCZoQZI",
+      "output": "src/assets/img/electronics/hero/hero-fridge-1280.webp"
+    },
+    {
+      "slot": "hero_fridge",
+      "unsplashId": "alXdbCZoQZI",
+      "output": "src/assets/img/electronics/hero/hero-fridge-1920.webp"
+    },
+    {
+      "slot": "hero_washer",
+      "unsplashId": "R_pCJvo1lNQ",
+      "output": "src/assets/img/electronics/hero/hero-washer-768.webp"
+    },
+    {
+      "slot": "hero_washer",
+      "unsplashId": "R_pCJvo1lNQ",
+      "output": "src/assets/img/electronics/hero/hero-washer-1280.webp"
+    },
+    {
+      "slot": "hero_washer",
+      "unsplashId": "R_pCJvo1lNQ",
+      "output": "src/assets/img/electronics/hero/hero-washer-1920.webp"
+    },
+    {
+      "slot": "collection_kitchen",
+      "unsplashId": "kB3eQPxN71c",
+      "output": "src/assets/img/electronics/collections/collection-kitchen-768.webp"
+    },
+    {
+      "slot": "collection_kitchen",
+      "unsplashId": "kB3eQPxN71c",
+      "output": "src/assets/img/electronics/collections/collection-kitchen-1280.webp"
+    },
+    {
+      "slot": "collection_kitchen",
+      "unsplashId": "kB3eQPxN71c",
+      "output": "src/assets/img/electronics/collections/collection-kitchen-1920.webp"
+    },
+    {
+      "slot": "collection_clean",
+      "unsplashId": "-hNhqn--blY",
+      "output": "src/assets/img/electronics/collections/collection-clean-768.webp"
+    },
+    {
+      "slot": "collection_clean",
+      "unsplashId": "-hNhqn--blY",
+      "output": "src/assets/img/electronics/collections/collection-clean-1280.webp"
+    },
+    {
+      "slot": "collection_clean",
+      "unsplashId": "-hNhqn--blY",
+      "output": "src/assets/img/electronics/collections/collection-clean-1920.webp"
+    },
+    {
+      "slot": "featured_tv",
+      "unsplashId": "XwgC9tsm7jU",
+      "output": "src/assets/img/electronics/featured/featured-tv-400.webp"
+    },
+    {
+      "slot": "featured_tv",
+      "unsplashId": "XwgC9tsm7jU",
+      "output": "src/assets/img/electronics/featured/featured-tv-800.webp"
+    },
+    {
+      "slot": "featured_fridge",
+      "unsplashId": "alXdbCZoQZI",
+      "output": "src/assets/img/electronics/featured/featured-fridge-400.webp"
+    },
+    {
+      "slot": "featured_fridge",
+      "unsplashId": "alXdbCZoQZI",
+      "output": "src/assets/img/electronics/featured/featured-fridge-800.webp"
+    },
+    {
+      "slot": "featured_microwave",
+      "unsplashId": "Wj6oZNCAzs4",
+      "output": "src/assets/img/electronics/featured/featured-microwave-400.webp"
+    },
+    {
+      "slot": "featured_microwave",
+      "unsplashId": "Wj6oZNCAzs4",
+      "output": "src/assets/img/electronics/featured/featured-microwave-800.webp"
+    },
+    {
+      "slot": "category_tvs",
+      "unsplashId": "XwgC9tsm7jU",
+      "output": "src/assets/img/electronics/category/tvs-400.webp"
+    },
+    {
+      "slot": "category_tvs",
+      "unsplashId": "XwgC9tsm7jU",
+      "output": "src/assets/img/electronics/category/tvs-800.webp"
+    },
+    {
+      "slot": "category_refrigerators",
+      "unsplashId": "alXdbCZoQZI",
+      "output": "src/assets/img/electronics/category/refrigerators-400.webp"
+    },
+    {
+      "slot": "category_refrigerators",
+      "unsplashId": "alXdbCZoQZI",
+      "output": "src/assets/img/electronics/category/refrigerators-800.webp"
+    },
+    {
+      "slot": "category_washing_machines",
+      "unsplashId": "R_pCJvo1lNQ",
+      "output": "src/assets/img/electronics/category/washing-machines-400.webp"
+    },
+    {
+      "slot": "category_washing_machines",
+      "unsplashId": "R_pCJvo1lNQ",
+      "output": "src/assets/img/electronics/category/washing-machines-800.webp"
+    },
+    {
+      "slot": "category_kitchen",
+      "unsplashId": "Wj6oZNCAzs4",
+      "output": "src/assets/img/electronics/category/kitchen-400.webp"
+    },
+    {
+      "slot": "category_kitchen",
+      "unsplashId": "Wj6oZNCAzs4",
+      "output": "src/assets/img/electronics/category/kitchen-800.webp"
+    },
+    {
+      "slot": "category_small_appliances",
+      "unsplashId": "5TXz228u4eo",
+      "output": "src/assets/img/electronics/category/small-appliances-400.webp"
+    },
+    {
+      "slot": "category_small_appliances",
+      "unsplashId": "5TXz228u4eo",
+      "output": "src/assets/img/electronics/category/small-appliances-800.webp"
+    },
+    {
+      "slot": "category_accessories",
+      "unsplashId": "P7KF3cTRKcE",
+      "output": "src/assets/img/electronics/category/accessories-400.webp"
+    },
+    {
+      "slot": "category_accessories",
+      "unsplashId": "P7KF3cTRKcE",
+      "output": "src/assets/img/electronics/category/accessories-800.webp"
+    },
+    {
+      "slot": "instagram_1",
+      "unsplashId": "CkIEbSutcqs",
+      "output": "src/assets/img/electronics/instagram/instagram-1-400.webp"
+    },
+    {
+      "slot": "instagram_1",
+      "unsplashId": "CkIEbSutcqs",
+      "output": "src/assets/img/electronics/instagram/instagram-1-800.webp"
+    },
+    {
+      "slot": "instagram_2",
+      "unsplashId": "aw6UewokOIo",
+      "output": "src/assets/img/electronics/instagram/instagram-2-400.webp"
+    },
+    {
+      "slot": "instagram_2",
+      "unsplashId": "aw6UewokOIo",
+      "output": "src/assets/img/electronics/instagram/instagram-2-800.webp"
+    },
+    {
+      "slot": "instagram_3",
+      "unsplashId": "czZumandoIQ",
+      "output": "src/assets/img/electronics/instagram/instagram-3-400.webp"
+    },
+    {
+      "slot": "instagram_3",
+      "unsplashId": "czZumandoIQ",
+      "output": "src/assets/img/electronics/instagram/instagram-3-800.webp"
+    },
+    {
+      "slot": "instagram_4",
+      "unsplashId": "WSDMFvfGdFc",
+      "output": "src/assets/img/electronics/instagram/instagram-4-400.webp"
+    },
+    {
+      "slot": "instagram_4",
+      "unsplashId": "WSDMFvfGdFc",
+      "output": "src/assets/img/electronics/instagram/instagram-4-800.webp"
+    },
+    {
+      "slot": "instagram_5",
+      "unsplashId": "P7KF3cTRKcE",
+      "output": "src/assets/img/electronics/instagram/instagram-5-400.webp"
+    },
+    {
+      "slot": "instagram_5",
+      "unsplashId": "P7KF3cTRKcE",
+      "output": "src/assets/img/electronics/instagram/instagram-5-800.webp"
+    },
+    {
+      "slot": "instagram_6",
+      "unsplashId": "5TXz228u4eo",
+      "output": "src/assets/img/electronics/instagram/instagram-6-400.webp"
+    },
+    {
+      "slot": "instagram_6",
+      "unsplashId": "5TXz228u4eo",
+      "output": "src/assets/img/electronics/instagram/instagram-6-800.webp"
+    },
+    {
+      "slot": "testimonial_user_1",
+      "unsplashId": "8OWcgGeB-Rk",
+      "output": "src/assets/img/users/user-1-256.webp"
+    },
+    {
+      "slot": "testimonial_user_1",
+      "unsplashId": "8OWcgGeB-Rk",
+      "output": "src/assets/img/users/user-1-512.webp"
+    },
+    {
+      "slot": "testimonial_user_2",
+      "unsplashId": "N0e6W2WDa5U",
+      "output": "src/assets/img/users/user-2-256.webp"
+    },
+    {
+      "slot": "testimonial_user_2",
+      "unsplashId": "N0e6W2WDa5U",
+      "output": "src/assets/img/users/user-2-512.webp"
+    },
+    {
+      "slot": "testimonial_user_3",
+      "unsplashId": "4DwRp_5Dzo0",
+      "output": "src/assets/img/users/user-3-256.webp"
+    },
+    {
+      "slot": "testimonial_user_3",
+      "unsplashId": "4DwRp_5Dzo0",
+      "output": "src/assets/img/users/user-3-512.webp"
+    }
+  ]
+}
