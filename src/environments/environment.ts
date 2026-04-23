@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://api.genexintl.com.np/api'
+  production: false,
+  apiUrl: 'http://localhost:5177/api'
 };

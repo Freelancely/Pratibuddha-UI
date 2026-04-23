@@ -13,12 +13,12 @@
           </svg>
           <span class="tp-product-tooltip tp-product-tooltip-right">Quick View</span>
         </button>
-        <button (click)="addToWishlist(product)" type="button" class="tp-product-action-btn-2 tp-product-add-to-wishlist-btn">
+        <!-- <button (click)="addToWishlist(product)" type="button" class="tp-product-action-btn-2 tp-product-add-to-wishlist-btn">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- SVG paths remain unchanged -->
+            
           </svg>
           <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
-        </button>
+        </button> -->
         <button (click)="addToCompare(product)" type="button" class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- SVG paths remain unchanged -->
@@ -55,10 +55,10 @@
         </ng-template>
       </div>
       <p>{{ product.productDescription.slice(0, 100) }}...</p>
-      <div class="tp-product-list-add-to-cart">
+      <!-- <div class="tp-product-list-add-to-cart">
         <button *ngIf="!isItemInCart(product)" (click)="addToCart(product)" class="tp-product-list-add-to-cart-btn">Add To Cart</button>
         <a *ngIf="isItemInCart(product)" routerLink="/shop/cart" class="tp-product-list-add-to-cart-btn" [class.active]="isItemInCart(product)">View Cart</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

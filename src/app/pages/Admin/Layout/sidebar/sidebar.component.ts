@@ -38,26 +38,26 @@ export class SidebarComponent implements OnInit {
         { icon: 'fas fa-layer-group', label: 'Categories', route: '/pages/admin/add-sub-category' },
         { icon: 'fas fa-layer-group', label: 'Add Products', route: '/pages/admin/products' },
       ]
-    },
-    { icon: 'fas fa-cart-shopping', label: 'View Orders', route: '/pages/admin/order-list' },
-    {
-      icon: 'fas fa-tags',
-      label: 'Discount',
-      isOpen: false,
-      children: [
-        { icon: 'fas fa-tag', label: 'Add Discount', route: '/pages/admin/add-discount' },
-        { icon: 'fas fa-tags', label: 'View Discount', route: '/pages/admin/discount-list' }
-      ]
-    },
-    {
-      icon: 'fas fa-ticket',
-      label: 'Coupon',
-      isOpen: false,
-      children: [
-        { icon: 'fas fa-layer-group', label: 'Add Coupon', route: '/pages/admin/add-coupon' },
-        { icon: 'fas fa-layer-group', label: 'View Coupons', route: '/pages/admin/view-coupons' }
-      ]
-    },
+    }
+    // { icon: 'fas fa-cart-shopping', label: 'View Orders', route: '/pages/admin/order-list' },
+    // {
+    //   icon: 'fas fa-tags',
+    //   label: 'Discount',
+    //   isOpen: false,
+    //   children: [
+    //     { icon: 'fas fa-tag', label: 'Add Discount', route: '/pages/admin/add-discount' },
+    //     { icon: 'fas fa-tags', label: 'View Discount', route: '/pages/admin/discount-list' }
+    //   ]
+    // },
+    // {
+    //   icon: 'fas fa-ticket',
+    //   label: 'Coupon',
+    //   isOpen: false,
+    //   children: [
+    //     { icon: 'fas fa-layer-group', label: 'Add Coupon', route: '/pages/admin/add-coupon' },
+    //     { icon: 'fas fa-layer-group', label: 'View Coupons', route: '/pages/admin/view-coupons' }
+    //   ]
+    // },
     // {
     //   icon: 'fas fa-signs-post',
     //   label: 'Banner',
@@ -67,7 +67,7 @@ export class SidebarComponent implements OnInit {
     //     { icon: 'fas fa-layer-group', label: 'View Banners', route: '/pages/admin/banner-list' }
     //   ]
     // },
-    { icon: 'fas fa-users', label: 'View Users', route: '/pages/admin/users-list' }
+    // { icon: 'fas fa-users', label: 'View Users', route: '/pages/admin/users-list' }
   ];
 
   constructor(

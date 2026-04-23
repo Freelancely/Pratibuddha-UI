@@ -9,7 +9,7 @@
   <!-- breadcrumb area end -->
 
   <!-- checkout area start -->
-  <section class="tp-checkout-area pb-120" style="background-color: #EFF1F5;">
+  <!-- <section class="tp-checkout-area pb-120" style="background-color: #EFF1F5;">
     <div class="container">
       <div *ngIf="cartService.getCartProducts().length === 0; else checkoutBlock" class="text-center pt-50">
         <h3 class="py-2">No items found in cart to checkout</h3>
@@ -50,7 +50,7 @@
               <div class="col-lg-7">
                 <div class="tp-checkout-bill-area">
                   <h3 class="tp-checkout-bill-title">Billing Details</h3>
-                  <!-- Saved Billing Addresses -->
+                   Saved Billing Addresses
                   <div class="tp-checkout-bill-form">
                     <h4>Saved Addresses</h4>
                     <div *ngIf="billingInfos.length === 0" class="text-center">
@@ -79,7 +79,6 @@
                     </div>
                   </div>
 
-                  <!-- Add/Edit Billing Form -->
                   <div class="tp-checkout-bill-form mt-4">
                     <h4>{{ editingBillingId ? 'Edit Billing Address' : 'Add New Billing Address' }}</h4>
                     <div class="tp-checkout-bill-inner">
@@ -164,19 +163,16 @@
                 </div>
               </div>
               <div class="col-lg-5">
-                <!-- checkout place order -->
                 <div class="tp-checkout-place white-bg">
                   <h3 class="tp-checkout-place-title">Your Order</h3>
 
                   <div class="tp-order-info-list">
                     <ul>
-                      <!-- header -->
                       <li class="tp-order-info-list-header">
                         <h4>Product</h4>
                         <h4>Total</h4>
                       </li>
 
-                      <!-- item list -->
                       <li *ngFor="let item of cartService.getCartProducts()" class="tp-order-info-list-desc">
                         <p>{{item.productName}} <span> x {{item.orderQuantity || 1}}</span></p>
                         <span *ngIf="item.discountPercentage && item.discountPercentage > 0; else noItemDiscount">
@@ -187,19 +183,16 @@
                         </ng-template>
                       </li>
 
-                      <!-- subtotal -->
                       <li class="tp-order-info-list-subtotal">
                         <span>Subtotal</span>
                         <span>Nrs.{{ (cartService.totalPriceQuantity()?.total || 0).toFixed(2) }}</span>
                       </li>
 
-                      <!-- coupon discount -->
                       <li *ngIf="appliedCoupon" class="tp-order-info-list-subtotal">
                         <span>Coupon Discount ({{ appliedCoupon.discountPercent }}%)</span>
                         <span>-Nrs.{{ (((cartService.totalPriceQuantity()?.total || 0) * appliedCoupon.discountPercent) / 100).toFixed(2) }}</span>
                       </li>
 
-                      <!-- shipping -->
                       <li class="tp-order-info-list-shipping">
                         <span>Shipping</span>
                         <div class="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
@@ -216,7 +209,6 @@
                         </div>
                       </li>
 
-                      <!-- total -->
                       <li class="tp-order-info-list-total">
                         <span>Total</span>
                         <span>Nrs.{{ calculateTotal().toFixed(2) }}</span>
@@ -258,7 +250,7 @@
         </div>
       </ng-template>
     </div>
-  </section>
+  </section> -->
   <!-- checkout area end -->
 </main>
 

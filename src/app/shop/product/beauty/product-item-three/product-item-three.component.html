@@ -17,18 +17,18 @@
     <!-- Product action -->
     <div class="tp-product-action-3 tp-product-action-blackStyle">
       <div class="tp-product-action-item-3 d-flex flex-column">
-        <button *ngIf="!isItemInCart(product)" (click)="addToCart(product); $event.stopPropagation()" type="button" class="tp-product-action-btn-3 tp-product-add-cart-btn">
+        <!-- <button *ngIf="!isItemInCart(product)" (click)="addToCart(product); $event.stopPropagation()" type="button" class="tp-product-action-btn-3 tp-product-add-cart-btn">
           <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- SVG paths remain unchanged -->
-          </svg>
-          <span class="tp-product-tooltip">Add to Cart</span>
-        </button>
-        <a routerLink="/shop/cart" *ngIf="isItemInCart(product)" type="button" class="tp-product-action-btn-3 tp-product-add-cart-btn" [class.active]="isItemInCart(product)">
+            
+          </svg> -->
+          <!-- <span class="tp-product-tooltip">Add to Cart</span> -->
+        <!-- </button> -->
+        <!-- <a routerLink="/shop/cart" *ngIf="isItemInCart(product)" type="button" class="tp-product-action-btn-3 tp-product-add-cart-btn" [class.active]="isItemInCart(product)">
           <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- SVG paths remain unchanged -->
+            
           </svg>
           <span class="tp-product-tooltip">View Cart</span>
-        </a>
+        </a> -->
         <button type="button" class="tp-product-action-btn-3 tp-product-quick-view-btn" data-bs-toggle="modal" [attr.data-bs-target]="'#' + utilsService.modalId"
           (click)="utilsService.handleOpenModal('product-modal-' + product.productId, product); $event.stopPropagation()">
           <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,11 +45,11 @@
       </div>
     </div>
 
-    <div class="tp-product-add-cart-btn-large-wrapper">
+    <!-- <div class="tp-product-add-cart-btn-large-wrapper">
       <button (click)="addToCart(product); $event.stopPropagation()" type="button" class="tp-product-add-cart-btn-large">
         Add To Cart
       </button>
-    </div>
+    </div> -->
   </div>
   <div class="tp-product-content-3">
     <div class="tp-product-tag-3">

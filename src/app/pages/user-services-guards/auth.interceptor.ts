@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authExcludedUrls = [
       '/api/user/login',
-      '/api/user/register',
+      // '/api/user/register',
       '/api/user/forgot-password',
       '/api/shop',
       '/api/products',
@@ -32,14 +32,14 @@ export class AuthInterceptor implements HttpInterceptor {
       '/api/home',
       '/api/electronics',
       '/api/product',
-      '/api/cart/cart-items',
-      '/api/cart/add-to-cart',
-      '/api/cart/remove-item',
-      '/api/cart/remove-all',
-      '/api/cart/increase-quantity',
-      '/api/cart/decrease-quantity',
+      // '/api/cart/cart-items',
+      // '/api/cart/add-to-cart',
+      // '/api/cart/remove-item',
+      // '/api/cart/remove-all',
+      // '/api/cart/increase-quantity',
+      // '/api/cart/decrease-quantity',
       '/api/notification',
-      '/api/wishlist',
+      // '/api/wishlist',
     ];
 
     const isItExcluded = authExcludedUrls.some((url) =>

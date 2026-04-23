@@ -68,22 +68,22 @@ export class ProductItemTwoComponent implements OnInit, OnDestroy {
   }
 
   private loadWishlist() {
-    if (this.token) {
-      this.wishlistService.getWishlistProducts(this.token).subscribe({
-        next: (items) => {
-          this.wishlistItems = items;
-        },
-        error: (err) => {
-          console.error('Wishlist load error:', err);
-          if (err.status === 401) {
-            this.utilsService.toastrService.warning('Session expired. Please log in again.');
-            this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
-          } else {
-            this.utilsService.toastrService.error('Failed to load wishlist');
-          }
-        }
-      });
-    }
+    // if (this.token) {
+    //   this.wishlistService.getWishlistProducts(this.token).subscribe({
+    //     next: (items) => {
+    //       this.wishlistItems = items;
+    //     },
+    //     error: (err) => {
+    //       console.error('Wishlist load error:', err);
+    //       if (err.status === 401) {
+    //         this.utilsService.toastrService.warning('Session expired. Please log in again.');
+    //         this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
+    //       } else {
+    //         this.utilsService.toastrService.error('Failed to load wishlist');
+    //       }
+    //     }
+    //   });
+    // }
   }
 
   addToCart(product: IProduct) {

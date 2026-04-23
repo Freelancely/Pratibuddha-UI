@@ -1,4 +1,4 @@
-<div [ngClass]="['cartmini__area tp-all-font-roboto', cartService.isCartOpen ? 'cartmini-opened' : '']">
+<!-- <div [ngClass]="['cartmini__area tp-all-font-roboto', cartService.isCartOpen ? 'cartmini-opened' : '']">
   <div class="cartmini__wrapper d-flex justify-content-between flex-column">
     <div class="cartmini__top-wrapper">
       <div class="cartmini__top p-relative">
@@ -12,7 +12,6 @@
         </div>
       </div>
       <div class="cartmini__shipping">
-        <!-- Replace with Angular component for cart progress -->
       </div>
       <div *ngIf="cartProducts.length > 0" class="cartmini__widget">
         <div *ngFor="let item of cartProducts" class="cartmini__widget-item">
@@ -40,7 +39,6 @@
           </a>
         </div>
       </div>
-      <!-- if no item in cart  -->
       <div *ngIf="cartProducts.length === 0" class="cartmini__empty text-center">
         <img src="/assets/img/product/cartmini/empty-cart.png" alt="empty-cart-img" />
         <p>Your Cart is empty</p>
@@ -59,6 +57,5 @@
     </div>
   </div>
 </div>
-<!-- overlay start  -->
 <div (click)="cartService.handleOpenCartSidebar()" [ngClass]="['body-overlay', cartService.isCartOpen ? 'opened' : '']"></div>
-<!-- overlay end  -->
+overlay end  -->
