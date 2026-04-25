@@ -1,16 +1,39 @@
 <section class="tp-product-category pt-60 pb-15">
   <div class="container">
-    <div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
-      <div *ngFor="let item of category_items" class="col">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="row">
+      <div class="col-12 text-center py-5">
+        <p>Loading categories...</p>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="hasError && !isLoading" class="row">
+      <div class="col-12 text-center py-5">
+        <p class="text-danger">Unable to load categories. Please try again.</p>
+      </div>
+    </div>
+
+    <!-- Categories Grid -->
+    <div *ngIf="!isLoading && !hasError && category_items.length > 0" class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
+      <div *ngFor="let item of category_items; trackBy: trackByCategory" class="col">
         <div class="tp-product-category-item text-center mb-40">
           <div class="tp-product-category-thumb fix">
             <a
               [routerLink]="['/shop']"
               [queryParams]="{
-                category: item.parent.toLowerCase().split(' ').join('-')
+                category: item.categoryName.toLowerCase().split(' ').join('-')
               }"
             >
-              <img [src]="item.img" alt="product-category" />
+              <img
+                *ngIf="item.img"
+                [src]="item.img"
+                [attr.srcset]="item.img ? (item.img.replace('-800.webp','-400.webp') + ' 400w, ' + item.img + ' 800w') : null"
+                sizes="(max-width: 576px) 40vw, (max-width: 992px) 20vw, 160px"
+                alt="product-category" />
+              <div *ngIf="!item.img" class="tp-category-placeholder" style="height: 200px; background-color: #f3f5f7; display: flex; align-items: center; justify-content: center;">
+                <span>{{ item.categoryName }}</span>
+              </div>
             </a>
           </div>
           <div class="tp-product-category-content">
@@ -18,15 +41,22 @@
               <a
                 [routerLink]="['/shop']"
                 [queryParams]="{
-                  category: item.parent.toLowerCase().split(' ').join('-')
+                  category: item.categoryName.toLowerCase().split(' ').join('-')
                 }"
                 >
-                {{ item.parent }}
+                {{ item.categoryName }}
               </a>
             </h3>
-            <p>{{ item.products.length }} Product</p>
+            <p>{{ item.productCount || 0 }} Product</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && !hasError && category_items.length === 0" class="row">
+      <div class="col-12 text-center py-5">
+        <p>No categories available.</p>
       </div>
     </div>
   </div>

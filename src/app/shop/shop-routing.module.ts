@@ -14,8 +14,7 @@ import { DynamicProductDetailsComponent } from './pages/dynamic-product-details/
 import { ProductDetailsWithCountdownComponent } from './pages/product-details-with-countdown/product-details-with-countdown.component';
 import { ProductDetailsListComponent } from './pages/product-details-list/product-details-list.component';
 import { ProductDetailsGalleryComponent } from './pages/product-details-gallery/product-details-gallery.component';
-import { CartComponent } from './pages/cart/cart.component';
-import { WishlistComponent } from './pages/wishlist/wishlist.component';
+// import { CartComponent } from './pages/cart/cart.component';
 import { CompareComponent } from './pages/compare/compare.component';
 import { OrderComponent } from './pages/order/order.component';
 
@@ -92,16 +91,11 @@ const routes: Routes = [
     component:ProductDetailsGalleryComponent,
     title:'Shop Details Gallery Page'
   },
-  {
-    path:'cart',
-    component:CartComponent,
-    title:'Shop cart Page'
-  },
-  {
-    path:'wishlist',
-    component:WishlistComponent,
-    title:'Shop Wishlist Page'
-  },
+  // {
+  //   path:'cart',
+  //   component:CartComponent,
+  //   title:'Shop cart Page'
+  // },
   {
     path:'compare',
     component:CompareComponent,

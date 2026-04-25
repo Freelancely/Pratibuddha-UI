@@ -101,7 +101,7 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 2,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'How to Clean Your Home Faster and More Efficiently',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat',
     blog: 'blog-postbox'
@@ -113,7 +113,7 @@ const blogData: IBlogType[] = [
     author: 'Mark Smith',
     comments: 5,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Four Ways a Clean Workplace Makes Employees Happy and Healthy',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat',
     video: true,
@@ -123,10 +123,10 @@ const blogData: IBlogType[] = [
   {
     id: 9,
     date: 'March 15, 2023',
-    author: 'Swagat Gautam',
+    author: 'John doe',
     comments: 8,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Only one thing is impossible for God: To find any sense in any copyright law on the planet.',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat',
     blockquote: true,
@@ -139,7 +139,7 @@ const blogData: IBlogType[] = [
     author: 'Salim Rana',
     comments: 10,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Time for Spring Cleaning? Use These Tips From the Professionals',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat',
     blog: 'blog-postbox'
@@ -152,7 +152,7 @@ const blogData: IBlogType[] = [
     author: 'Smith Mark',
     comments: 12,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Time for Spring Cleaning? Use These Tips From the Professionals',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat',
     blog: 'blog-postbox'
@@ -166,7 +166,7 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 5,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Hiring the Right Sales Team at the Right Time',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'
@@ -179,7 +179,7 @@ const blogData: IBlogType[] = [
     author: 'Salim Rana',
     comments: 0,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Fully Embrace the Return of 90s fashion',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'
@@ -192,7 +192,7 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 12,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Exploring the English Countryside',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'
@@ -205,8 +205,8 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 8,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
-    title: 'Here’s the First Valentino’s New Makeup Collection',
+    category: 'Electronics',
+    title: 'Here’s the First Valentino’s New Appliance Collection',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'
   },
@@ -218,7 +218,7 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 4,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Follow Your own Design process, whatever gets',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'
@@ -231,7 +231,7 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 6,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Freelancer Days 2022, What’s new?',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'
@@ -244,7 +244,7 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 6,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Hiring the Right Sales Team at the Right Time',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'
@@ -257,7 +257,7 @@ const blogData: IBlogType[] = [
     author: 'John Smith',
     comments: 15,
     tags: ["Fashion", "Lift Style", "News"],
-    category: 'Beauty',
+    category: 'Electronics',
     title: 'Quality Foods Requirments For Every Human Body’s',
     desc: 'Cursus mattis sociis natoque penatibus et magnis montes,nascetur ridiculus.',
     blog: 'blog-grid'

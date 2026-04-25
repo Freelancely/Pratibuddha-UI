@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
-import category_data from '@/data/category-data';
-import { ICategory } from '@/types/category-type';
+import { ICategory } from '@/shared/types/category-type';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { CategoryService } from '@/shared/services/category.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-category-filter',
@@ -11,21 +13,53 @@ import { ProductService } from 'src/app/shared/services/product.service';
     styleUrls: ['./category-filter.component.scss'],
     standalone: false
 })
-export class CategoryFilterComponent {
-  public categoryData: ICategory[] = category_data;
+export class CategoryFilterComponent implements OnInit, OnDestroy {
+  public categoryData: ICategory[] = [];
+  public isLoading: boolean = true;
+  public hasError: boolean = false;
   activeQuery: string = '';
+  private destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private viewScroller: ViewportScroller,
-    public productService: ProductService
+    public productService: ProductService,
+    private categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((queryParams) => {
-      this.activeQuery = queryParams['category'];
-    });
+    this.loadCategories();
+    
+    this.route.queryParams
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((queryParams) => {
+        this.activeQuery = queryParams['category'];
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private loadCategories(): void {
+    this.isLoading = true;
+    this.hasError = false;
+
+    this.categoryService.getAllCategories()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (categories: ICategory[]) => {
+          this.categoryData = categories;
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error('Error loading categories:', error);
+          this.hasError = true;
+          this.isLoading = false;
+        }
+      });
   }
 
   handleCategoryRoute(value: string): void {
@@ -39,13 +73,17 @@ export class CategoryFilterComponent {
     this.router
       .navigate([], {
         relativeTo: this.route,
-        queryParams, // Pass the queryParams object here
+        queryParams,
         queryParamsHandling: 'merge',
         skipLocationChange: false,
       })
       .finally(() => {
         this.viewScroller.setOffset([120, 120]);
-        this.viewScroller.scrollToAnchor('products'); // Anchore Link
+        this.viewScroller.scrollToAnchor('products');
       });
+  }
+
+  trackByCategory(index: number, item: ICategory): string {
+    return item.categoryId;
   }
 }

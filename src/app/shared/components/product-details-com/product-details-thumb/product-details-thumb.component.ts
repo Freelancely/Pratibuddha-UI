@@ -18,8 +18,10 @@ export class ProductDetailsThumbComponent implements OnInit { // Changed to impl
   ) {}
 
   ngOnInit() {
-    if (this.product && this.product.img) { // Check for product.img
+    if (this.product && this.product.img) {
       this.productService.activeImg = this.product.img;
+    } else if (this.product && this.product.productImageUrl && this.product.productImageUrl.length > 0) {
+      this.productService.activeImg = this.product.productImageUrl[0].img;
     }
   }
 }

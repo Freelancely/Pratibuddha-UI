@@ -49,7 +49,7 @@ export class LoginFormComponent implements OnInit {
             this.toastrService.success(res.message || 'Login successful!');
 
             setTimeout(() => {
-              const targetUrl = this.auth.isAdmin() ? '/pages/admin/dashboard' : '/home/beauty';
+              const targetUrl = this.auth.isAdmin() ? '/pages/admin/dashboard' : '/home/electronics';
 
               this.router.navigate([targetUrl], { replaceUrl: true }).then(success => {
                 console.log('✅ Navigation success:', success);

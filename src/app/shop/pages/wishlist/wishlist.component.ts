@@ -37,40 +37,40 @@ export class WishlistComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.token = localStorage.getItem('token');
-    console.log('WishlistComponent initial token:', this.token);
-    if (this.token) {
-      this.loadWishlist();
-    } else {
-      console.warn('No token in localStorage on init');
-      this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
-    }
+    // this.token = localStorage.getItem('token');
+    // console.log('WishlistComponent initial token:', this.token);
+    // if (this.token) {
+    //   this.loadWishlist();
+    // } else {
+    //   console.warn('No token in localStorage on init');
+    //   this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
+    // }
 
-    this.tokenSubscription = this.authService.token$.subscribe(token => {
-      this.token = token;
-      console.log('WishlistComponent token$:', token);
-      if (this.token) {
-        this.loadWishlist();
-        if (this.tokenSubscription) {
-          this.tokenSubscription.unsubscribe();
-        }
-      }
-    });
+    // this.tokenSubscription = this.authService.token$.subscribe(token => {
+    //   this.token = token;
+    //   console.log('WishlistComponent token$:', token);
+    //   if (this.token) {
+    //     this.loadWishlist();
+    //     if (this.tokenSubscription) {
+    //       this.tokenSubscription.unsubscribe();
+    //     }
+    //   }
+    // });
 
-    this.cartSubscription = this.cartService.getCartItemsObservable().subscribe(items => {
-      this.cartItems = items.map(item => item.product);
-      console.log('WishlistComponent: Cart items updated', this.cartItems);
-      this.cdr.detectChanges();
-    });
+    // this.cartSubscription = this.cartService.getCartItemsObservable().subscribe(items => {
+    //   this.cartItems = items.map(item => item.product);
+    //   console.log('WishlistComponent: Cart items updated', this.cartItems);
+    //   this.cdr.detectChanges();
+    // });
   }
 
   ngOnDestroy() {
-    if (this.tokenSubscription) {
-      this.tokenSubscription.unsubscribe();
-    }
-    if (this.cartSubscription) {
-      this.cartSubscription.unsubscribe();
-    }
+    // if (this.tokenSubscription) {
+    //   this.tokenSubscription.unsubscribe();
+    // }
+    // if (this.cartSubscription) {
+    //   this.cartSubscription.unsubscribe();
+    // }
   }
 
   private loadWishlist() {

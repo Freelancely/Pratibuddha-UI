@@ -17,21 +17,21 @@ export class HeroBannerThreeComponent {
   public slider_data = [
     {
       id: 1,
-      bg: "/assets/img/slider/3/slider-1.jpg",
-      subtitle: "Winter Collection 2023",
-      title: "Be your kind of beauty",
+      bg: "image-set(url('/assets/img/electronics/hero/hero-tv-1280.webp') 1x, url('/assets/img/electronics/hero/hero-tv-1920.webp') 2x)",
+      subtitle: "Entertainment Essentials",
+      title: "Upgrade your home cinema with 4K TVs",
     },
     {
       id: 2,
-      bg: "/assets/img/slider/3/slider-2.jpg",
-      subtitle: "Top Brand Collection",
-      title: "Use the best for you.",
+      bg: "image-set(url('/assets/img/electronics/hero/hero-fridge-1280.webp') 1x, url('/assets/img/electronics/hero/hero-fridge-1920.webp') 2x)",
+      subtitle: "Smart Kitchen",
+      title: "Fresh food, smarter storage, lower energy",
     },
     {
       id: 3,
-      bg: "/assets/img/slider/3/slider-3.jpg",
-      subtitle: "Awesome Beauty Products",
-      title: "Don't Worry for Skincare",
+      bg: "image-set(url('/assets/img/electronics/hero/hero-washer-1280.webp') 1x, url('/assets/img/electronics/hero/hero-washer-1920.webp') 2x)",
+      subtitle: "Laundry Made Easy",
+      title: "Quiet, efficient washing for every home",
     },
   ]
 

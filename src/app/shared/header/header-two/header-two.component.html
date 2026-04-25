@@ -19,8 +19,8 @@
               <div class="row align-items-center">
                  <div class="col-xl-2 col-lg-5 col-md-5 col-sm-4 col-6">
                     <div class="logo">
-                       <a [routerLink]="['/home/beauty']">
-                          <h4 style="letter-spacing: 4px; font-weight: lighter;">ASMI</h4>
+                       <a [routerLink]="['/home/electronics']">
+                          <h4 style="letter-spacing: 2px; font-weight: bold; color: #000;">Pratibuddha</h4>
                        </a>
                     </div>
                  </div>
@@ -64,7 +64,7 @@
                                 <span class="tp-header-action-badge">{{ wishlistItems.length }}</span>
                              </a>
                           </div>
-                          <div class="tp-header-action-item">
+                          <!-- <div class="tp-header-action-item">
                              <button (click)="cartService.handleOpenCartSidebar()" class="tp-header-action-btn cartmini-open-btn">
                                 <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.48626 20.5H14.8341C17.9004 20.5 20.2528 19.3924 19.5847 14.9348L18.8066 8.89359C18.3947 6.66934 16.976 5.81808 15.7311 5.81808H5.55262C4.28946 5.81808 2.95308 6.73341 2.4771 8.89359L1.69907 14.9348C1.13157 18.889 3.4199 20.5 6.48626 20.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -74,7 +74,7 @@
                                 </svg>
                                 <span class="tp-header-action-badge">{{ cartItemCount }}</span>
                              </button>
-                          </div>
+                          </div> -->
                           <div class="tp-header-action-item tp-header-hamburger mr-20 d-xl-none">
                              <button (click)="utilsService.handleOpenMobileMenu()" type="button" class="tp-offcanvas-open-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
@@ -95,7 +95,7 @@
 </header>
 
 <!-- cart sidebar start -->
-<app-cart-sidebar></app-cart-sidebar>
+<!-- <app-cart-sidebar></app-cart-sidebar> -->
 <!-- cart sidebar end -->
 
 <!-- mobile sidebar start -->

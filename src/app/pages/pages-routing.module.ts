@@ -49,21 +49,21 @@ const routes: Routes = [
       { path: 'blog-list', component: BlogListComponent, title: 'Blog List Page' },
       { path: 'blog-details', component: BlogDetailsComponent, title: 'Blog Details Page' },
       { path: 'blog-details/:id', component: DynamicBlogDetailsComponent, title: 'Blog Details Page' },
-      { path: 'coupons', component: CouponComponent, title: 'Coupon Page' },
+      // { path: 'coupons', component: CouponComponent, title: 'Coupon Page' },
       { path: 'contact', component: ContactComponent, title: 'Contact Page' },
 
       // AUTH ROUTES (Public)
       { path: 'login', component: LoginComponent, title: 'Login Page' },
-      { path: 'register', component: RegisterComponent, title: 'Register Page' },
+      // { path: 'register', component: RegisterComponent, title: 'Register Page' },
       { path: 'forgot', component: ForgotPasswordComponent, title: 'Forgot Page' },
 
       // PROTECTED USER ROUTES
-      { path: 'checkout', component: CheckoutComponent, title: 'Checkout Page' },
+      // { path: 'checkout', component: CheckoutComponent, title: 'Checkout Page' },
       { path: 'profile', component: ProfileComponent, title: 'Profile Page' },
       { path: 'search', component: SearchComponent, title: 'Search Page' },
-      { path: 'confirm-email', component: ConfirmEmailComponent, title: 'Confirm Email Page' },
+      // { path: 'confirm-email', component: ConfirmEmailComponent, title: 'Confirm Email Page' },
 
-      { path: '', redirectTo: '/home/beauty', pathMatch: 'full' } // ✅ FIXED: Direct to home
+      { path: '', redirectTo: '/home/electronics', pathMatch: 'full' } // ✅ FIXED: Direct to home
     ]
   },
 
@@ -79,10 +79,10 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent, title: 'Category Page' },
       { path: 'add-sub-category', component: AddSubCategoryComponent, title: 'Sub Category Page' },
       { path: 'products', component: ProductsComponent, title: 'Products Page' },
-      { path: 'order-list', component: OrderListComponent, title: 'View Orders Page' },
-      { path: 'add-coupon', component: AddCouponComponent, title: 'Add Coupon Page' },
-      { path: 'view-coupons', component: ViewCouponsComponent, title: 'Coupon Page' },
-      { path: 'users-list', component: UsersComponent, title: 'View Users Page' },
+      // { path: 'order-list', component: OrderListComponent, title: 'View Orders Page' },
+      // { path: 'add-coupon', component: AddCouponComponent, title: 'Add Coupon Page' },
+      // { path: 'view-coupons', component: ViewCouponsComponent, title: 'Coupon Page' },
+      // { path: 'users-list', component: UsersComponent, title: 'View Users Page' },
       { path: 'add-discount', component: DiscountsComponent, title: 'Add Discounts Page' },
       { path: 'discount-list', component: ViewDiscountsComponent, title: 'View Discounts Page' },
 

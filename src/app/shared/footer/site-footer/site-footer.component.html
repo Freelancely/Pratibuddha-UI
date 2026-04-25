@@ -1,0 +1,71 @@
+<footer class="pb-site-footer">
+  <div class="container">
+    <div class="pb-site-footer__top">
+      <div class="pb-site-footer__brand">
+        <a class="pb-site-footer__logo" routerLink="/home/electronics" aria-label="Pratibuddha Home">
+          <span class="pb-site-footer__logo-mark" aria-hidden="true"></span>
+          <span class="pb-site-footer__logo-text">Pratibuddha</span>
+        </a>
+        <p class="pb-site-footer__tagline">
+          Reliable electronics and home appliances — smart choices, trusted brands, and dependable support.
+        </p>
+        <div class="pb-site-footer__social">
+          <app-social-links></app-social-links>
+        </div>
+      </div>
+
+      <div class="pb-site-footer__cols">
+        <div class="pb-site-footer__col">
+          <h6 class="pb-site-footer__title">Products</h6>
+          <a routerLink="/shop-filter-dropdown" class="pb-site-footer__link">TVs</a>
+          <a routerLink="/shop-filter-dropdown" class="pb-site-footer__link">Refrigerators</a>
+          <a routerLink="/shop-filter-dropdown" class="pb-site-footer__link">Washing Machines</a>
+          <a routerLink="/shop-filter-dropdown" class="pb-site-footer__link">Kitchen Appliances</a>
+          <a routerLink="/shop-filter-dropdown" class="pb-site-footer__link">Accessories</a>
+        </div>
+
+        <div class="pb-site-footer__col">
+          <h6 class="pb-site-footer__title">Support</h6>
+          <a routerLink="/pages/contact" class="pb-site-footer__link">Contact</a>
+          <!-- <a routerLink="/pages/profile" class="pb-site-footer__link">My Account</a> -->
+          <!-- <a routerLink="/shop/cart" class="pb-site-footer__link">Cart</a> -->
+          <!-- <a routerLink="/pages/checkout" class="pb-site-footer__link">Checkout</a> -->
+        </div>
+
+        <div class="pb-site-footer__col">
+          <h6 class="pb-site-footer__title">Company</h6>
+          <a routerLink="/pages/about" class="pb-site-footer__link">About</a>
+          <a routerLink="/pages/contact" class="pb-site-footer__link">Store Locator</a>
+          <a routerLink="/pages/contact" class="pb-site-footer__link">Service Centers</a>
+        </div>
+
+        <div class="pb-site-footer__col">
+          <h6 class="pb-site-footer__title">Legal</h6>
+          <a routerLink="/pages/contact" class="pb-site-footer__link">Privacy Policy</a>
+          <a routerLink="/pages/contact" class="pb-site-footer__link">Terms</a>
+          <a routerLink="/pages/contact" class="pb-site-footer__link">Returns</a>
+        </div>
+      </div>
+
+      <div class="pb-site-footer__newsletter">
+        <h6 class="pb-site-footer__title">Newsletter</h6>
+        <p class="pb-site-footer__muted">Get new arrivals, deals, and smart-home tips.</p>
+        <form class="pb-site-footer__form" action="#" method="post">
+          <input type="email" placeholder="Email address" aria-label="Email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="pb-site-footer__payments" aria-label="Payment methods">
+          <span class="pb-site-footer__pay">VISA</span>
+          <span class="pb-site-footer__pay">Mastercard</span>
+          <span class="pb-site-footer__pay">PayPal</span>
+          <span class="pb-site-footer__pay">AmEx</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-site-footer__bottom">
+      <p>© {{ getYear() }} Pratibuddha. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+

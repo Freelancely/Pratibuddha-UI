@@ -57,7 +57,7 @@ export class AddSubCategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    const state: { subCategory?: SubCategory; categoryId?: string } = history.state;
+    const state = ((history.state ?? {}) as { subCategory?: SubCategory; categoryId?: string });
 
     this.categoryService.getCategories().subscribe({
       next: (categories) => {

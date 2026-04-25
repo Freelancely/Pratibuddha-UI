@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { FormControl, FormGroup,Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EnquiryService, IEnquiry } from 'src/app/shared/services/enquiry.service';
 
 @Component({
     selector: 'app-contact-form',
@@ -8,11 +9,14 @@ import { FormControl, FormGroup,Validators } from '@angular/forms';
     styleUrls: ['./contact-form.component.scss'],
     standalone: false
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements OnInit {
   public contactForm!: FormGroup;
   public formSubmitted = false;
 
-  constructor(private toastrService: ToastrService) { }
+  constructor(
+    private toastrService: ToastrService,
+    private enquiryService: EnquiryService
+  ) { }
 
   ngOnInit () {
     this.contactForm = new FormGroup({
@@ -26,14 +30,29 @@ export class ContactFormComponent {
   onSubmit() {
     this.formSubmitted = true;
     if (this.contactForm.valid) {
-      console.log('contact-form-value', this.contactForm.value);
-      this.toastrService.success(`Message sent successfully`);
+      const enquiryData: IEnquiry = {
+        personName: this.contactForm.value.name,
+        personEmail: this.contactForm.value.email,
+        enquiryDescription: `Subject: ${this.contactForm.value.subject}\n\nMessage: ${this.contactForm.value.message}`,
+        // personPhoneNumber and relatedProductId are optional
+      };
 
-      // Reset the form
-      this.contactForm.reset();
-      this.formSubmitted = false; // Reset formSubmitted to false
+      this.enquiryService.addEnquiry(enquiryData).subscribe({
+        next: (response) => {
+          if (response.success) {
+            this.toastrService.success(`Message sent successfully`);
+            this.contactForm.reset();
+            this.formSubmitted = false;
+          } else {
+            this.toastrService.error(response.message || `Failed to send message`);
+          }
+        },
+        error: (err) => {
+          console.error('Enquiry Error:', err);
+          this.toastrService.error(err.error?.message || `Something went wrong. Please try again later.`);
+        }
+      });
     }
-    console.log('contact-form', this.contactForm);
   }
 
   get name() { return this.contactForm.get('name') }

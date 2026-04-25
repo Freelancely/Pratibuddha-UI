@@ -1,5 +1,5 @@
 <!-- header start -->
-<app-header-two [style_2]="true"></app-header-two>
+<app-site-header></app-site-header>
 <!-- header end -->
 
 <!-- breadcrumb area start -->
@@ -7,7 +7,7 @@
 <!-- breadcrumb area end -->
 
 <!-- cart area start -->
-<section class="tp-cart-area pb-120">
+<!-- <section class="tp-cart-area pb-120">
   <div class="container">
     <div *ngIf="cartProducts.length === 0" class="text-center pt-50">
       <h3>No Cart Items Found</h3>
@@ -27,21 +27,17 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of cartProducts">
-                <!-- img -->
                 <td class="tp-cart-img">
                   <a [routerLink]="['/shop/shop-details', item.productId]" style="background-color: #F2F3F5; display: block;">
                     <img [src]="item.productImageUrl[0]?.img" alt="" *ngIf="item.productImageUrl && item.productImageUrl.length > 0">
                   </a>
                 </td>
-                <!-- title -->
                 <td class="tp-cart-title">
                   <a [routerLink]="['/shop/shop-details', item.productId]">{{ item.productName }}</a>
                 </td>
-                <!-- price -->
                 <td class="tp-cart-price">
                   <span>Nrs.{{ (item.discountedPrice ?? item.price ?? 0).toFixed(2) }}</span>
                 </td>
-                <!-- quantity -->
                 <td class="tp-cart-quantity">
                   <div class="tp-product-quantity mt-10 mb-10">
                     <span class="tp-cart-minus" (click)="decrementQuantity(item)">
@@ -58,7 +54,6 @@
                     </span>
                   </div>
                 </td>
-                <!-- action -->
                 <td class="tp-cart-action">
                   <button class="tp-cart-action-btn" (click)="removeItem(item)">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +97,7 @@
               ${{ (cartService.totalPriceQuantity().total + shipCost).toFixed(2) }}
             </span>
           </div>
-          <!-- <div class="tp-cart-checkout-shipping">
+          <div class="tp-cart-checkout-shipping">
             <h4 class="tp-cart-checkout-shipping-title">Shipping</h4>
             <div class="tp-cart-checkout-shipping-option-wrapper">
               <div class="tp-cart-checkout-shipping-option">
@@ -118,7 +113,7 @@
                 <label (click)="handleShippingCost('free')" for="free_shipping">Free shipping</label>
               </div>
             </div>
-          </div> -->
+          </div>
           <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
             <span>Total</span>
             <span>${{ (cartService.totalPriceQuantity().total + shipCost).toFixed(2) }}</span>
@@ -130,9 +125,9 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- cart area end -->
 
 <!-- footer start -->
-<app-footer-one [primary_style]="true"></app-footer-one>
+<app-site-footer></app-site-footer>
 <!-- footer end -->

@@ -1,5 +1,5 @@
 <!-- header start -->
-<app-header-two [style_2]="true"></app-header-two>
+<app-site-header></app-site-header>
 <!-- header end -->
 
 <!-- breadcrumb area start -->
@@ -7,7 +7,7 @@
 <!-- breadcrumb area end -->
 
 <!-- wishlist area start -->
-<section class="tp-cart-area pb-120">
+<!-- <section class="tp-cart-area pb-120">
   <div class="container">
     <div *ngIf="wishlistItems; else emptyWishlist">
       <div *ngIf="wishlistItems.length === 0" class="text-center pt-50">
@@ -28,17 +28,14 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of wishlistItems">
-                  <!-- img -->
                   <td class="tp-cart-img">
                     <a [routerLink]="['/shop/shop-details', item.productId]" style="background-color: #F2F3F5; display: block;">
                       <img [src]="item.imageUrl || '/assets/img/default-product.png'" alt="{{ item.productName }}" />
                     </a>
                   </td>
-                  <!-- title -->
                   <td class="tp-cart-title">
                     <a [routerLink]="['/shop/shop-details', item.productId]">{{ item.productName }}</a>
                   </td>
-                  <!-- price -->
                   <td class="tp-cart-price"><span>Nrs.{{ item.productPrice.toFixed(2) }}</span></td>
 
                   <td class="tp-cart-add-to-cart">
@@ -47,7 +44,6 @@
                     </button>
                   </td>
 
-                  <!-- action -->
                   <td class="tp-cart-action">
                     <button class="tp-cart-action-btn" (click)="removeFromWishlist(item.wishlistId)">
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,9 +75,9 @@
       </div>
     </ng-template>
   </div>
-</section>
+</section> -->
 <!-- wishlist area end -->
 
 <!-- footer start -->
-<app-footer-one [primary_style]="true"></app-footer-one>
+<app-site-footer></app-site-footer>
 <!-- footer end -->

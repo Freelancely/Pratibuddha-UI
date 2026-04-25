@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BeautyComponent } from './beauty/beauty.component';
+import { ElectronicsComponent } from './electronics/electronics.component';
 
 const routes: Routes = [
   {
-    path:'beauty',
-    component:BeautyComponent,
-    title:'Home Beauty'
+    path:'electronics',
+    component:ElectronicsComponent,
+    title:'Pratibuddha | Electronics'
   }
 ];
 
