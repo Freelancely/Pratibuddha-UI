@@ -4,17 +4,9 @@ import { Subscription } from 'rxjs';
 import { IProduct } from '@/types/product-type';
 import { CartService } from '@/shared/services/cart.service';
 import { CompareService } from '@/shared/services/compare.service';
-import { WishlistService } from '@/shared/services/wishlist.service';
 import { UtilsService } from '@/shared/services/utils.service';
 import { AuthService } from 'src/app/pages/user-services-guards/auth.service';
 
-interface WishlistItem {
-  wishlistId: string;
-  productId: string;
-  imageUrl: string;
-  productName: string;
-  productPrice: number;
-}
 
 @Component({
   selector: 'app-product-list-item',
@@ -24,13 +16,11 @@ interface WishlistItem {
 })
 export class ProductListItemComponent implements OnInit, OnDestroy {
   @Input() product!: IProduct;
-  public wishlistItems: WishlistItem[] = [];
   private token: string | null = null;
   private tokenSubscription: Subscription | null = null;
 
   constructor(
     public cartService: CartService,
-    public wishlistService: WishlistService,
     public compareService: CompareService,
     public utilsService: UtilsService,
     private authService: AuthService,
@@ -40,18 +30,10 @@ export class ProductListItemComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.token = localStorage.getItem('token');
     console.log('ProductListItemComponent initial token:', this.token); // Debug
-    if (this.token) {
-      this.loadWishlist();
-    } else {
-      console.warn('No token in localStorage on init');
-    }
 
     this.tokenSubscription = this.authService.token$.subscribe(token => {
       this.token = token;
       console.log('ProductListItemComponent token$:', token); // Debug
-      if (this.token) {
-        this.loadWishlist();
-      }
     });
   }
 
@@ -61,24 +43,6 @@ export class ProductListItemComponent implements OnInit, OnDestroy {
     }
   }
 
-  private loadWishlist() {
-    // if (this.token) {
-    //   this.wishlistService.getWishlistProducts(this.token).subscribe({
-    //     next: (items) => {
-    //       this.wishlistItems = items;
-    //     },
-    //     error: (err) => {
-    //       console.error('Wishlist load error:', err);
-    //       if (err.status === 401) {
-    //         this.utilsService.toastrService.warning('Session expired. Please log in again.');
-    //         this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
-    //       } else {
-    //         this.utilsService.toastrService.error('Failed to load wishlist');
-    //       }
-    //     }
-    //   });
-    // }
-  }
 
   addToCart(product: IProduct) {
     if (product.productStatus === 'out-of-stock' || (product.quantity ?? 0) === 0) {
@@ -86,30 +50,6 @@ export class ProductListItemComponent implements OnInit, OnDestroy {
       return;
     }
     this.cartService.addCartProduct(product).subscribe();
-  }
-
-  addToWishlist(product: IProduct) {
-    if (this.token) {
-      this.wishlistService.add_wishlist_product(this.token, product).subscribe({
-        next: () => {
-          this.loadWishlist();
-          this.utilsService.toastrService.success(`${product.productName} added to wishlist`);
-        },
-        error: (err) => {
-          console.error('Add to wishlist error:', err);
-          if (err.status === 401) {
-            this.utilsService.toastrService.warning('Session expired. Please log in again.');
-            this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
-          } else {
-            this.utilsService.toastrService.error(`Failed to add ${product.productName} to wishlist`);
-          }
-        }
-      });
-    } else {
-      console.error('No token provided for wishlist API calls');
-      this.utilsService.toastrService.warning('Please log in to add items to your wishlist');
-      this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
-    }
   }
 
   addToCompare(product: IProduct) {
@@ -120,7 +60,4 @@ export class ProductListItemComponent implements OnInit, OnDestroy {
     return this.cartService.getCartProducts().some((prd: IProduct) => prd.productId === item.productId);
   }
 
-  isItemInWishlist(item: IProduct): boolean {
-    return this.wishlistItems.some((prd: WishlistItem) => prd.productId === item.productId);
-  }
 }

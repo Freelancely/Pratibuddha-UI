@@ -34,44 +34,57 @@ export class ProductService {
   }
 
   filterProducts(filters?: any): Observable<any> {
-    const defaultRequest = {
-      pageNumber: 1,
-      pageSize: 12
+    const requestBody = {
+      pageNumber: filters?.pageNumber || 1,
+      pageSize: filters?.pageSize || 12,
+      categoryName: filters?.categoryName || null,
+      subCategoryName: filters?.subCategoryName || null,
+      minPrice: filters?.minPrice || null,
+      maxPrice: filters?.maxPrice || null,
+      status: filters?.status || null,
+      brand: filters?.brand || null,
+      ...filters
     };
-
-    const requestBody = { ...defaultRequest, ...filters };
 
     console.log('📡 Sending to API:', requestBody);
 
     return this.getProducts(requestBody).pipe(
       map(response => {
-        const transformedProducts: IProduct[] = response.data.map((item: any) => ({
-          productId: item.productId,
-          productName: item.productName,
-          productDescription: item.productDescription,
-          productImageUrl: item.productImageUrl.map((img: string) => ({ img } as IProductImage)), // Transform array of URLs to IProductImage[]
-          productUnitPrice: item.productUnitPrice,
-          discountId: item.discountId,
-          discountedPrice: item.discountedPrice,
-          discountPercentage: item.discountPercentage,
-          productQuantity: item.productQuantity,
-          categoryId: item.categoryId,
-          categoryName: item.categoryName,
-          subCategoryId: item.subCategoryId,
-          subCategoryName: item.subCategoryName,
-          sales: item.sales,
-          productStatus: item.productStatus,
-          avgRating: item.avgRating,
-          reviewCount: item.reviewCount,
-          hotdeals: item.hotdeals,
-          attributes: item.attributes,
-          parent: item.categoryName,
-          brand: { name: item.subCategoryName },
-          price: item.productUnitPrice,
-          status: item.productStatus,
-          discount: item.discountPercentage || 0,
-          quantity: item.productQuantity
-        }));
+        const baseUrl = this.apiUrl.replace('/api', '');
+        const transformedProducts: IProduct[] = response.data.map((item: any) => {
+          const productImageUrl = item.productImageUrl.map((img: string) => ({
+            img: img.startsWith('http') ? img : `${baseUrl}/${img}`
+          } as IProductImage));
+
+          return {
+            productId: item.productId,
+            productName: item.productName,
+            productDescription: item.productDescription,
+            productImageUrl: productImageUrl,
+            productUnitPrice: item.productUnitPrice,
+            discountId: item.discountId,
+            discountedPrice: item.discountedPrice,
+            discountPercentage: item.discountPercentage,
+            productQuantity: item.productQuantity,
+            categoryId: item.categoryId,
+            categoryName: item.categoryName,
+            subCategoryId: item.subCategoryId,
+            subCategoryName: item.subCategoryName,
+            sales: item.sales,
+            productStatus: item.productStatus,
+            avgRating: item.avgRating,
+            reviewCount: item.reviewCount,
+            hotdeals: item.hotdeals,
+            attributes: item.attributes,
+            parent: item.categoryName,
+            brand: { name: item.subCategoryName },
+            price: item.productUnitPrice,
+            status: item.productStatus,
+            discount: item.discountPercentage || 0,
+            quantity: item.productQuantity,
+            img: productImageUrl[0]?.img || '' // Set the primary image
+          };
+        });
 
         return {
           data: transformedProducts,

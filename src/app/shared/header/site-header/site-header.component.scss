@@ -26,7 +26,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  min-width: 200px;
+  flex: 1;
 }
 
 .pb-site-header__logo-mark {
@@ -44,7 +44,7 @@
 }
 
 .pb-site-header__nav {
-  flex: 1;
+  display: flex;
   justify-content: center;
   gap: 18px;
 }
@@ -132,7 +132,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
-  min-width: 280px;
+  flex: 1;
 }
 
 .pb-site-header__search {

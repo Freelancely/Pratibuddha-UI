@@ -16,7 +16,7 @@ export class BeautyTestimonialComponent {
       review: 4,
       desc: "Sleek design, powerful features, and easy to use. Great performance and perfect for daily use — truly a great appliance choice!",
       user: "/assets/img/users/user-1-512.webp",
-      name: "Swagat Gautam",
+      name: "John doe",
       designation: "Customer",
     },
     {
@@ -24,7 +24,7 @@ export class BeautyTestimonialComponent {
       review: 3.5,
       desc: "Sleek design, powerful features, and easy to use. Great performance and perfect for daily use — truly a great appliance choice!",
       user: "/assets/img/users/user-2-512.webp",
-      name: "Swagat Gautam",
+      name: "John doe",
       designation: "Customer",
     },
     {
@@ -32,7 +32,7 @@ export class BeautyTestimonialComponent {
       review: 5,
       desc: "Sleek design, powerful features, and easy to use. Great performance and perfect for daily use — truly a great appliance choice!",
       user: "/assets/img/users/user-3-512.webp",
-      name: "Swagat Gautam",
+      name: "John doe",
       designation: "Customer",
     },
   ]

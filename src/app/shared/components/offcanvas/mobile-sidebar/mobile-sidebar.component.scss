@@ -1,0 +1,58 @@
+@use '../../../../../assets/scss/utils' as *;
+
+.offcanvas {
+  &__logo {
+    h4 {
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      @media #{$xs} {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__content {
+    padding-top: 10px;
+  }
+}
+
+.tp-category-mobile-menu {
+  ul {
+    li {
+      & a {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        
+        img {
+          margin-right: 15px;
+          border-radius: 4px;
+        }
+
+        span {
+          font-weight: 500;
+          font-size: 15px;
+          color: var(--tp-common-black);
+        }
+      }
+    }
+  }
+}
+
+.tp-main-menu-content {
+  ul {
+    li {
+      & a {
+        font-weight: 600;
+        font-size: 16px;
+        padding: 14px 0;
+      }
+    }
+  }
+}
+
+.offcanvas__close-btn {
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}

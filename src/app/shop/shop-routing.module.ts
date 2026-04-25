@@ -15,7 +15,6 @@ import { ProductDetailsWithCountdownComponent } from './pages/product-details-wi
 import { ProductDetailsListComponent } from './pages/product-details-list/product-details-list.component';
 import { ProductDetailsGalleryComponent } from './pages/product-details-gallery/product-details-gallery.component';
 // import { CartComponent } from './pages/cart/cart.component';
-import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CompareComponent } from './pages/compare/compare.component';
 import { OrderComponent } from './pages/order/order.component';
 
@@ -97,11 +96,6 @@ const routes: Routes = [
   //   component:CartComponent,
   //   title:'Shop cart Page'
   // },
-  {
-    path:'wishlist',
-    component:WishlistComponent,
-    title:'Shop Wishlist Page'
-  },
   {
     path:'compare',
     component:CompareComponent,

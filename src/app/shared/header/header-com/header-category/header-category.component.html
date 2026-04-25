@@ -10,26 +10,52 @@
     All Categories
   </button>
   <nav *ngIf="isActive" class="tp-category-menu-content">
-    <ul>
-      <ng-container *ngFor="let item of categoryItems; let i = index">
+    <!-- Loading State -->
+    <div *ngIf="isLoadingCategories" class="tp-category-loading">
+      <p>Loading categories...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="hasError && !isLoadingCategories" class="tp-category-error">
+      <p>Unable to load categories. Please try again.</p>
+    </div>
+
+    <!-- Categories List -->
+    <ul *ngIf="!isLoadingCategories && !hasError && categoryItems.length > 0">
+      <ng-container *ngFor="let item of categoryItems; let i = index; trackBy: trackByCategory">
         <li class="has-dropdown">
-          <a class="cursor-pointer" (click)="handleParentCategory(item.parent)">
-            <span *ngIf="item.img">
+          <!-- Parent Category -->
+          <a class="cursor-pointer" (click)="handleParentCategory(item.category.categoryName)">
+            <span *ngIf="item.category.img">
               <img
-                [src]="item.img"
-                alt="cate img"
+                [src]="item.category.img"
+                alt="{{item.category.categoryName}}"
                 style="width: 50px; height: 50px; object-fit: contain"
               />
             </span>
-            {{ item.parent }}
+            {{ item.category.categoryName }}
           </a>
-          <ul *ngIf="item.children" class="tp-submenu">
-            <li *ngFor="let child of item.children; let i = index">
-              <a class="cursor-pointer" (click)="handleSubCategory(child)">{{ child }}</a>
+
+          <!-- Subcategories -->
+          <ul *ngIf="item.subcategories && item.subcategories.length > 0" class="tp-submenu">
+            <li *ngFor="let subcategory of item.subcategories; let i = index; trackBy: trackBySubcategory">
+              <a class="cursor-pointer" (click)="handleSubCategory(subcategory.subCategoryName)">
+                {{ subcategory.subCategoryName }}
+              </a>
             </li>
           </ul>
+
+          <!-- Loading indicator for subcategories -->
+          <div *ngIf="item.isLoading" class="tp-subcategory-loading">
+            <p class="text-muted small">Loading subcategories...</p>
+          </div>
         </li>
       </ng-container>
     </ul>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoadingCategories && !hasError && categoryItems.length === 0" class="tp-category-empty">
+      <p>No categories available.</p>
+    </div>
   </nav>
 </div>

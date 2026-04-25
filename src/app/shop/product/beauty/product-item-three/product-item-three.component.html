@@ -36,11 +36,15 @@
           </svg>
           <span class="tp-product-tooltip">Quick View</span>
         </button>
-        <button (click)="addToWishlist(product); $event.stopPropagation()" type="button" class="tp-product-action-btn-3 tp-product-add-to-wishlist-btn" [class.active]="isItemInWishlist(product)">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- SVG paths remain unchanged -->
+        <!-- Compare Button -->
+        <button (click)="addToCompare(product); $event.stopPropagation()" type="button" class="tp-product-action-btn-3 tp-product-add-to-compare-btn" [class.active]="isItemInCompare(product)">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.4144 6.16828L14 3.58412L11.4144 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1.48883 3.58374L14 3.58374" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 10.9058H1.48883" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span class="tp-product-tooltip">Add To Wishlist</span>
+          <span class="tp-product-tooltip">Add To Compare</span>
         </button>
       </div>
     </div>

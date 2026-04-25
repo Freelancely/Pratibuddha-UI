@@ -10,11 +10,10 @@
     </button>
   </div>
   <div class="offcanvas__content">
-    <div class="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
+    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
       <div class="offcanvas__logo logo">
         <a routerLink="/home/electronic">
-          <!-- <img src="/assets/img/logo/logo.svg" alt="logo" /> -->
-           <h4>Asmi Collections</h4>
+          <h4 style="font-weight: 700; color: var(--tp-theme-primary); margin-bottom: 0;">Asmi Collections</h4>
         </a>
       </div>
     </div>
@@ -27,25 +26,46 @@
       </button> -->
       <div class="tp-category-mobile-menu">
         <nav [ngClass]="['tp-category-menu-content', isCategoryActive ? 'active' : '']">
-          <ul [ngClass]="isCategoryActive ? 'active' : ''">
-            <li *ngFor="let item of filterCategories()" class="has-dropdown">
+          <!-- Loading State -->
+          <div *ngIf="isLoadingCategories" class="tp-category-loading">
+            <p>Loading categories...</p>
+          </div>
+
+          <!-- Error State -->
+          <div *ngIf="hasError && !isLoadingCategories" class="tp-category-error">
+            <p>Unable to load categories. Please try again.</p>
+          </div>
+
+          <!-- Categories List -->
+          <ul *ngIf="!isLoadingCategories && !hasError && categoryItems.length > 0" [ngClass]="isCategoryActive ? 'active' : ''">
+            <li *ngFor="let item of categoryItems; let i = index; trackBy: trackByCategory" class="has-dropdown">
               <a class="cursor-pointer">
-                <span *ngIf="item.img">
-                  <img [src]="item.img" alt="cate img" style="width: 50px; height: 50px; object-fit: contain"/>
+                <span *ngIf="item.category.img">
+                  <img [src]="item.category.img" alt="{{item.category.categoryName}}" style="width: 35px; height: 35px; object-fit: contain; margin-right: 10px;"/>
                 </span>
-                <span>{{ item.parent }}</span>
-                <button *ngIf="item.children" (click)="handleOpenSubCategory(item.parent)" class="dropdown-toggle-btn">
+                <span>{{ item.category.categoryName }}</span>
+                <button *ngIf="item.subcategories && item.subcategories.length > 0" (click)="handleOpenSubCategory(item.category.categoryName)" class="dropdown-toggle-btn">
                   <i class="fa-regular fa-angle-right"></i>
                 </button>
               </a>
 
-              <ul *ngIf="item.children" [ngClass]="['tp-submenu', openCategory === item.parent ? 'active' : '']">
-                <li *ngFor="let child of item.children">
-                  <a class="cursor-pointer">{{ child }}</a>
+              <ul *ngIf="item.subcategories && item.subcategories.length > 0" [ngClass]="['tp-submenu', openCategory === item.category.categoryName ? 'active' : '']">
+                <li *ngFor="let subcategory of item.subcategories; trackBy: trackBySubcategory">
+                  <a class="cursor-pointer">{{ subcategory.subCategoryName }}</a>
                 </li>
               </ul>
+
+              <!-- Loading indicator for subcategories -->
+              <div *ngIf="item.isLoading" class="tp-subcategory-loading">
+                <p class="text-muted small">Loading subcategories...</p>
+              </div>
             </li>
           </ul>
+
+          <!-- Empty State -->
+          <div *ngIf="!isLoadingCategories && !hasError && categoryItems.length === 0" class="tp-category-empty">
+            <p>No categories available.</p>
+          </div>
         </nav>
       </div>
     </div>

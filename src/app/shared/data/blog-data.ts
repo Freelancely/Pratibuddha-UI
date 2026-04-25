@@ -123,7 +123,7 @@ const blogData: IBlogType[] = [
   {
     id: 9,
     date: 'March 15, 2023',
-    author: 'Swagat Gautam',
+    author: 'John doe',
     comments: 8,
     tags: ["Fashion", "Lift Style", "News"],
     category: 'Electronics',
