@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ICategory, ISubCategory } from '@/shared/types/category-type';
-import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  private apiUrl = environment.apiUrl;
+  private readonly apiUrl = environment.apiUrl;
   
   // In-memory cache for categories
-  private categoriesCache$ = new BehaviorSubject<ICategory[] | null>(null);
-  private subcategoriesCache = new Map<string, ISubCategory[]>();
+  private readonly categoriesCache$ = new BehaviorSubject<ICategory[] | null>(null);
+  private readonly subcategoriesCache = new Map<string, ISubCategory[]>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   /**
    * Get all categories from backend with caching
@@ -32,15 +31,7 @@ export class CategoryService {
 
     return this.http.get<any>(`${this.apiUrl}/category/get-all-categories`, { headers })
       .pipe(
-        map(response => {
-          // Transform backend response to frontend ICategory format
-          if (Array.isArray(response)) {
-            return response as ICategory[];
-          } else if (response.data && Array.isArray(response.data)) {
-            return response.data as ICategory[];
-          }
-          return [];
-        }),
+        map(response => this.normalizeCategoryResponse(response)),
         tap(categories => {
           // Cache the result
           this.categoriesCache$.next(categories);
@@ -66,15 +57,7 @@ export class CategoryService {
 
     return this.http.get<any>(`${this.apiUrl}/subCategory/get-by-category/${categoryId}`, { headers })
       .pipe(
-        map(response => {
-          // Transform backend response to frontend ISubCategory format
-          if (Array.isArray(response)) {
-            return response as ISubCategory[];
-          } else if (response.data && Array.isArray(response.data)) {
-            return response.data as ISubCategory[];
-          }
-          return [];
-        }),
+        map(response => this.normalizeSubCategoryResponse(response)),
         tap(subcategories => {
           // Cache the result
           this.subcategoriesCache.set(categoryId, subcategories);
@@ -84,6 +67,75 @@ export class CategoryService {
           return of([]);
         })
       );
+  }
+
+  private normalizeCategoryResponse(response: any): ICategory[] {
+    let items: any[] = [];
+
+    if (Array.isArray(response)) {
+      items = response;
+    } else if (response?.data && Array.isArray(response.data)) {
+      items = response.data;
+    } else if (response?.message && Array.isArray(response.message)) {
+      items = response.message;
+    } else if (response?.categories && Array.isArray(response.categories)) {
+      items = response.categories;
+    } else if (response?.data?.data && Array.isArray(response.data.data)) {
+      items = response.data.data;
+    }
+
+    return items.map((item) => this.mapToCategory(item));
+  }
+
+  private normalizeSubCategoryResponse(response: any): ISubCategory[] {
+    let items: any[] = [];
+
+    if (Array.isArray(response)) {
+      items = response;
+    } else if (response?.data && Array.isArray(response.data)) {
+      items = response.data;
+    } else if (response?.message && Array.isArray(response.message)) {
+      items = response.message;
+    } else if (response?.subCategories && Array.isArray(response.subCategories)) {
+      items = response.subCategories;
+    } else if (response?.data?.data && Array.isArray(response.data.data)) {
+      items = response.data.data;
+    }
+
+    return items.map((item) => this.mapToSubCategory(item));
+  }
+
+  private mapToCategory(item: any): ICategory {
+    return {
+      categoryId: item.categoryId || item.CategoryId || item.id || item._id || '',
+      categoryName: item.categoryName || item.CategoryName || item.name || item.category || item.parent || '',
+      subCategoryCount: item.subCategoryCount ?? item.SubCategoryCount ?? item.subCategoryCount ?? item.subCategoryTotal ?? 0,
+      productCount: item.productCount ?? item.ProductCount ?? item.productCount ?? 0,
+      productNames: item.productNames || item.ProductNames || [],
+      id: item.id || item.categoryId || item.CategoryId || item._id,
+      img: item.img || item.image || item.categoryImage || item.imageUrl,
+      parent: item.parent || item.category || item.categoryName || item.name,
+      children: Array.isArray(item.children) ? item.children : item.subCategories?.map((sub: any) => sub.subCategoryName || sub.name) || [],
+      productType: item.productType || item.productTypeName || '',
+      products: Array.isArray(item.products) ? item.products : [],
+      status: item.status || item.isActive || ''
+    };
+  }
+
+  private mapToSubCategory(item: any): ISubCategory {
+    let subCatAttrs: any[] = [];
+    if (Array.isArray(item.subCatAttrs)) {
+      subCatAttrs = item.subCatAttrs;
+    } else if (Array.isArray(item.attributes)) {
+      subCatAttrs = item.attributes;
+    }
+
+    return {
+      subCategoryId: item.subCategoryId || item.SubCategoryId || item.id || item._id || '',
+      subCategoryName: item.subCategoryName || item.SubCategoryName || item.name || item.subCategory || '',
+      categoryId: item.categoryId || item.CategoryId || item.category || item.category_id || item.parentId || '',
+      subCatAttrs
+    };
   }
 
   /**

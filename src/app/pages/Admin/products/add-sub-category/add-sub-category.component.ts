@@ -18,10 +18,21 @@ interface LocalSubAttribute extends SubAttribute {
   styleUrls: ['./add-sub-category.component.scss']
 })
 export class AddSubCategoryComponent implements OnInit {
+  Math = Math;
   subCategoryForm: FormGroup;
   isEditMode = false;
   categories = signal<Category[]>([]);
   attributes = signal<LocalSubAttribute[]>([]);
+  subCategories = signal<SubCategory[]>([]);
+  selectedCategoryId = signal<string>('');
+  subCategoriesLoading = signal(false);
+  subCategoriesError = signal<string | null>(null);
+
+  // Search & pagination
+  subCategorySearchTerm = '';
+  subItemsPerPage = 10;
+  subCurrentPage = 1;
+
   errorMessage = signal<string | null>(null);
 
   isSubmitDisabled = computed(() => {
@@ -41,6 +52,56 @@ export class AddSubCategoryComponent implements OnInit {
     console.log('Attributes Invalid:', attributesInvalid);
     return formInvalid || attributesInvalid;
   });
+
+  // Returns filtered + searched + paginated subcategories for the current view
+  filteredSubCategories(): SubCategory[] {
+    let list = this.subCategories();
+    const selectedId = this.selectedCategoryId();
+    if (selectedId) {
+      list = list.filter(sub => sub.categoryId === selectedId);
+    }
+    const term = (this.subCategorySearchTerm || '').trim().toLowerCase();
+    if (term) {
+      list = list.filter(s => s.name.toLowerCase().includes(term));
+    }
+    const start = (this.subCurrentPage - 1) * this.subItemsPerPage;
+    return list.slice(start, start + this.subItemsPerPage);
+  }
+
+  onSubCategorySearch(): void {
+    this.subCurrentPage = 1;
+  }
+
+  subTotalPages(): number {
+    const selectedId = this.selectedCategoryId();
+    let list = this.subCategories();
+    if (selectedId) {
+      list = list.filter(sub => sub.categoryId === selectedId);
+    }
+    const term = (this.subCategorySearchTerm || '').trim().toLowerCase();
+    if (term) {
+      list = list.filter(s => s.name.toLowerCase().includes(term));
+    }
+    return Math.max(1, Math.ceil(list.length / this.subItemsPerPage));
+  }
+
+  getSubPageNumbers(): number[] {
+    const total = this.subTotalPages();
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  subPreviousPage(): void {
+    if (this.subCurrentPage > 1) this.subCurrentPage--;
+  }
+
+  subNextPage(): void {
+    if (this.subCurrentPage < this.subTotalPages()) this.subCurrentPage++;
+  }
+
+  goToSubPage(page: number): void {
+    const total = this.subTotalPages();
+    if (page >= 1 && page <= total) this.subCurrentPage = page;
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -77,6 +138,7 @@ export class AddSubCategoryComponent implements OnInit {
         name: state.subCategory.name,
         categoryId: state.subCategory.categoryId
       });
+      this.selectedCategoryId.set(state.subCategory.categoryId);
       const attributes = (state.subCategory.attributes || []).map((attr: SubAttribute) => ({
         ...attr,
         possibleValuesString: (attr.possibleValuesJson || []).join(', ')
@@ -85,6 +147,7 @@ export class AddSubCategoryComponent implements OnInit {
       this.cdr.markForCheck();
     } else if (state.categoryId) {
       this.subCategoryForm.patchValue({ categoryId: state.categoryId });
+      this.selectedCategoryId.set(state.categoryId);
       this.cdr.markForCheck();
     } else {
       const subCategoryId = this.router.parseUrl(this.router.url).queryParams['id'];
@@ -98,6 +161,7 @@ export class AddSubCategoryComponent implements OnInit {
                 name: subCategory.name,
                 categoryId: subCategory.categoryId
               });
+              this.selectedCategoryId.set(subCategory.categoryId);
               const attributes = (subCategory.attributes || []).map((attr: SubAttribute) => ({
                 ...attr,
                 possibleValuesString: (attr.possibleValuesJson || []).join(', ')
@@ -115,6 +179,34 @@ export class AddSubCategoryComponent implements OnInit {
         });
       }
     }
+
+    this.subCategoryForm.get('categoryId')?.valueChanges.subscribe(value => {
+      this.selectedCategoryId.set(value ?? '');
+    });
+
+    this.loadSubCategories();
+  }
+
+  private loadSubCategories(): void {
+    this.subCategoriesLoading.set(true);
+    this.subCategoriesError.set(null);
+
+    this.subCategoryService.getAllSubCategories().subscribe({
+      next: (subCategories) => {
+        this.subCategories.set(subCategories);
+        this.subCategoriesLoading.set(false);
+        this.cdr.markForCheck();
+      },
+      error: (error) => {
+        this.subCategoriesError.set('Failed to load sub-categories: ' + error.message);
+        this.subCategoriesLoading.set(false);
+        console.error('Error fetching sub-categories:', error.message);
+      }
+    });
+  }
+
+  getCategoryName(categoryId: string): string {
+    return this.categories().find(category => category.id === categoryId)?.name || 'Unknown';
   }
 
   addAttribute() {
@@ -214,6 +306,38 @@ export class AddSubCategoryComponent implements OnInit {
 
   trackByIndex(index: number, attr: LocalSubAttribute): number {
     return index;
+  }
+
+  editSubCategory(sub: SubCategory): void {
+    this.isEditMode = true;
+    this.subCategoryForm.patchValue({
+      name: sub.name,
+      categoryId: sub.categoryId
+    });
+    this.selectedCategoryId.set(sub.categoryId);
+    const attributes = (sub.attributes || []).map((attr: SubAttribute) => ({
+      ...attr,
+      possibleValuesString: (attr.possibleValuesJson || []).join(', ')
+    }));
+    this.attributes.set(attributes as LocalSubAttribute[]);
+    this.cdr.markForCheck();
+  }
+
+  deleteSubCategory(sub: SubCategory): void {
+    if (!confirm(`Delete subcategory "${sub.name}"?`)) return;
+    // call service - if delete endpoint exists it will remove on backend
+    // remove locally after success
+    (this.subCategoryService as any).deleteSubCategory?.(sub.id)?.subscribe?.({
+      next: () => {
+        this.subCategories.update(list => list.filter(s => s.id !== sub.id));
+        alert('Sub-category deleted');
+        this.cdr.markForCheck();
+      },
+      error: (err: any) => {
+        console.error('Failed to delete sub-category', err);
+        alert('Failed to delete sub-category: ' + (err?.message || err));
+      }
+    });
   }
 
   cancel() {

@@ -138,6 +138,12 @@ export class SubCategoryService {
     );
   }
 
+  deleteSubCategory(subCategoryId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/subCategory/delete-subCategory/${subCategoryId}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = 'An error occurred';
     if (error.error instanceof ErrorEvent) {
